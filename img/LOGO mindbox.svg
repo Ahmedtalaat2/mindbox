@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="a" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 151.5 45.29">
+  <defs>
+    <style>
+      .b {
+        font-size: 43.25px;
+      }
+
+      .b, .c {
+        font-family: BerlinSansFBDemi-Bold, 'Berlin Sans FB Demi';
+        font-weight: 700;
+      }
+
+      .b, .c, .d {
+        fill: #fff;
+      }
+
+      .c {
+        font-size: 18.92px;
+      }
+
+      .d {
+        opacity: .99;
+      }
+    </style>
+  </defs>
+  <text class="c" transform="translate(98.63 35.29)"><tspan x="0" y="0">Portal</tspan></text>
+  <text class="b" transform="translate(0 36.44)"><tspan x="0" y="0">Mind</tspan></text>
+  <text class="c" transform="translate(98.72 19.74)"><tspan x="0" y="0">Box</tspan></text>
+  <path class="d" d="M150.62,16.41c-4.64,0-16.21.03-20.8-.01,0-.02,0-1.58,0-1.95.03-.28,20.31-.02,20.79-.11.05.22,0,2.01.01,2.05h0Z"/>
+</svg>
