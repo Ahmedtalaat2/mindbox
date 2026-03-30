@@ -1,1514 +1,111 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- ============================================================
-       MindBox Portal — Main Website v2.0
-       Dubai's Brand Building Agency
-       ============================================================ -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- SEO -->
     <title>MindBox Portal — Dubai's Brand Building Agency</title>
     <meta
       name="description"
-      content="MindBox Portal is Dubai's premier brand building agency. We build complete digital identities for startups — logo, website, social media, paid ads, and AI automation."
+      content="MindBox Portal — Web Development, Paid Ads, Social Media Design & AI Automation for businesses in Dubai."
     />
     <meta
       name="keywords"
-      content="digital marketing agency Dubai, branding Dubai, web development Dubai, social media Dubai, MindBox Portal"
+      content="web development Dubai, paid ads Dubai, social media design Dubai, AI automation Dubai, MindBox Portal"
     />
     <meta name="author" content="MindBox Portal" />
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content="MindBox Portal — Dubai's Brand Building Agency"
+      content="MindBox Portal — Dubai's Digital Agency"
     />
     <meta
       property="og:description"
-      content="We build complete digital identities for startups in Dubai."
+      content="We build websites, run ads, design social media content, and automate your business in Dubai."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mindboxportal.com" />
     <link rel="canonical" href="https://mindboxportal.com" />
-
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
-    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
 
-    <style>
-      /* ============================================================
-   CSS VARIABLES
-   ============================================================ */
-      :root {
-        --navy: #0d1b2a;
-        --red: #e63946;
-        --gold: #f4a261;
-        --white: #ffffff;
-        --gray: #a8b2c1;
-        --dark: #080f17;
-        --card-bg: #0f1e2e;
-      }
-
-      /* ============================================================
-   RESET & BASE
-   ============================================================ */
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        background: var(--dark);
-        color: var(--white);
-        font-family: "Poppins", sans-serif;
-        overflow-x: hidden;
-        line-height: 1.6;
-      }
-      img {
-        max-width: 100%;
-        display: block;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
-      ul {
-        list-style: none;
-      }
-      button {
-        cursor: pointer;
-        font-family: inherit;
-      }
-
-      /* ============================================================
-   ANIMATED BACKGROUND — Planet blobs (blur only, no border)
-   ============================================================ */
-      .bg-canvas {
-        position: fixed;
-        inset: 0;
-        z-index: 0;
-        pointer-events: none;
-        overflow: hidden;
-      }
-
-      .planet {
-        position: absolute;
-        border-radius: 50%;
-        filter: blur(90px);
-        animation: planetOrbit ease-in-out infinite;
-      }
-
-      .planet-1 {
-        width: 500px;
-        height: 500px;
-        background: radial-gradient(
-          circle at 40% 40%,
-          var(--red),
-          transparent 70%
-        );
-        top: -150px;
-        left: -100px;
-        animation-duration: 20s;
-        animation-delay: 0s;
-      }
-      .planet-2 {
-        width: 420px;
-        height: 420px;
-        background: radial-gradient(
-          circle at 50% 50%,
-          #1a3a5c,
-          transparent 70%
-        );
-        top: 25%;
-        right: -120px;
-        animation-duration: 26s;
-        animation-delay: -8s;
-      }
-      .planet-3 {
-        width: 360px;
-        height: 360px;
-        background: radial-gradient(
-          circle at 40% 60%,
-          var(--gold),
-          transparent 70%
-        );
-        bottom: 15%;
-        left: 10%;
-        animation-duration: 32s;
-        animation-delay: -15s;
-      }
-      .planet-4 {
-        width: 260px;
-        height: 260px;
-        background: radial-gradient(
-          circle at 50% 50%,
-          var(--red),
-          transparent 70%
-        );
-        top: 60%;
-        right: 15%;
-        animation-duration: 22s;
-        animation-delay: -5s;
-      }
-
-      @keyframes planetOrbit {
-        0% {
-          opacity: 0.08;
-          transform: translate(0, 0) scale(1);
-        }
-        20% {
-          opacity: 0.13;
-          transform: translate(30px, 20px) scale(1.04);
-        }
-        40% {
-          opacity: 0.07;
-          transform: translate(-15px, 40px) scale(0.96);
-        }
-        60% {
-          opacity: 0.12;
-          transform: translate(25px, -15px) scale(1.02);
-        }
-        80% {
-          opacity: 0.06;
-          transform: translate(-10px, 30px) scale(1.01);
-        }
-        100% {
-          opacity: 0.08;
-          transform: translate(0, 0) scale(1);
-        }
-      }
-
-      /* ============================================================
-   HEADER
-   ============================================================ */
-      #header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        padding: 0 5%;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        transition:
-          background 0.4s,
-          border-color 0.4s;
-      }
-
-      #header.scrolled {
-        background: rgba(8, 15, 23, 0.96);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-      }
-
-      /* Logo image — place your SVG at /assets/logo.svg */
-      .header-logo {
-        display: flex;
-        align-items: center;
-        height: 40px;
-      }
-      .header-logo img {
-        height: 40px;
-        width: auto;
-        object-fit: contain;
-      }
-
-      /* Text fallback if SVG missing */
-      .logo-fallback {
-        display: none;
-        align-items: baseline;
-        gap: 1px;
-      }
-      .logo-mind {
-        font-family: "Montserrat", sans-serif;
-        font-size: 24px;
-        font-weight: 900;
-        color: var(--white);
-        letter-spacing: -1px;
-      }
-      .logo-right {
-        display: flex;
-        flex-direction: column;
-        line-height: 1.15;
-        margin-left: 2px;
-      }
-      .logo-box-line {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-      }
-      .logo-box {
-        font-family: "Montserrat", sans-serif;
-        font-size: 11px;
-        font-weight: 700;
-        color: var(--white);
-      }
-      .logo-dash {
-        width: 14px;
-        height: 2px;
-        background: var(--red);
-        display: inline-block;
-      }
-      .logo-portal {
-        font-family: "Montserrat", sans-serif;
-        font-size: 11px;
-        font-weight: 500;
-        color: var(--gray);
-      }
-
-      /* Main nav */
-      .main-nav {
-        display: flex;
-        align-items: center;
-        gap: 32px;
-      }
-
-      .main-nav a {
-        color: var(--gray);
-        font-size: 14px;
-        font-weight: 500;
-        position: relative;
-        transition: color 0.3s;
-      }
-      .main-nav a::after {
-        content: "";
-        position: absolute;
-        bottom: -4px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: var(--gold);
-        transition: width 0.3s;
-        border-radius: 2px;
-      }
-      .main-nav a:hover,
-      .main-nav a.active {
-        color: var(--white);
-      }
-      .main-nav a:hover::after,
-      .main-nav a.active::after {
-        width: 100%;
-      }
-      .main-nav a.active::after {
-        background: var(--red);
-      }
-
-      .btn-nav-cta {
-        background: var(--red);
-        color: var(--white);
-        padding: 10px 22px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 600;
-        border: none;
-        transition: all 0.3s;
-        box-shadow: 0 4px 16px rgba(230, 57, 70, 0.3);
-      }
-      .btn-nav-cta:hover {
-        background: #c62d39;
-        transform: translateY(-2px);
-      }
-
-      .hamburger {
-        display: none;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        background: none;
-        border: none;
-        padding: 4px;
-      }
-      .hamburger span {
-        width: 24px;
-        height: 2px;
-        background: var(--white);
-        border-radius: 2px;
-        display: block;
-      }
-
-      /* ============================================================
-   MOBILE NAV
-   ============================================================ */
-      .mobile-nav {
-        position: fixed;
-        inset: 0;
-        background: rgba(8, 15, 23, 0.98);
-        backdrop-filter: blur(20px);
-        z-index: 999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 28px;
-        transform: translateX(100%);
-        transition: transform 0.4s ease;
-      }
-      .mobile-nav.open {
-        transform: translateX(0);
-      }
-      .mobile-nav a {
-        font-family: "Montserrat", sans-serif;
-        font-size: 26px;
-        font-weight: 800;
-        color: var(--white);
-        transition: color 0.3s;
-      }
-      .mobile-nav a:hover {
-        color: var(--red);
-      }
-      .mobile-close {
-        position: absolute;
-        top: 22px;
-        right: 22px;
-        font-size: 24px;
-        color: var(--gray);
-        background: none;
-        border: none;
-      }
-
-      /* ============================================================
-   SHARED UTILITIES
-   ============================================================ */
-      section {
-        position: relative;
-        z-index: 1;
-        padding: 100px 5%;
-      }
-      .section-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      .section-tag {
-        display: inline-block;
-        font-size: 10px;
-        font-weight: 700;
-        color: var(--gold);
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
-
-      .section-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(26px, 3.5vw, 44px);
-        font-weight: 900;
-        color: var(--white);
-        line-height: 1.15;
-        margin-bottom: 14px;
-      }
-      .section-title em {
-        color: var(--red);
-        font-style: normal;
-      }
-
-      .section-sub {
-        font-size: 15px;
-        color: var(--gray);
-        line-height: 1.75;
-        max-width: 580px;
-        margin-bottom: 52px;
-      }
-
-      /* Buttons */
-      .btn-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: var(--red);
-        color: var(--white);
-        padding: 14px 28px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        border: none;
-        transition: all 0.3s;
-        box-shadow: 0 4px 20px rgba(230, 57, 70, 0.35);
-      }
-      .btn-primary:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 10px 32px rgba(230, 57, 70, 0.45);
-        background: #c62d39;
-      }
-
-      .btn-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: transparent;
-        color: var(--white);
-        padding: 13px 28px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 600;
-        border: 2px solid rgba(255, 255, 255, 0.22);
-        transition: all 0.3s;
-      }
-      .btn-secondary:hover {
-        border-color: var(--white);
-        background: rgba(255, 255, 255, 0.05);
-      }
-
-      .btn-outline {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        border: 2px solid var(--red);
-        color: var(--white);
-        padding: 12px 28px;
-        border-radius: 8px;
-        font-size: 14px;
-        font-weight: 600;
-        transition: all 0.3s;
-      }
-      .btn-outline:hover {
-        background: var(--red);
-        transform: translateY(-2px);
-      }
-
-      /* Scroll animations */
-      .fade-up {
-        opacity: 0;
-        transform: translateY(28px);
-        transition:
-          opacity 0.65s ease,
-          transform 0.65s ease;
-      }
-      .fade-up.visible {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .delay-1 {
-        transition-delay: 0.1s;
-      }
-      .delay-2 {
-        transition-delay: 0.2s;
-      }
-      .delay-3 {
-        transition-delay: 0.3s;
-      }
-      .delay-4 {
-        transition-delay: 0.4s;
-      }
-
-      /* ============================================================
-   HERO — Centered text
-   ============================================================ */
-      #hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding-top: 120px;
-        padding-bottom: 80px;
-      }
-      .hero-inner {
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      .hero-tag {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        background: rgba(244, 162, 97, 0.1);
-        border: 1px solid rgba(244, 162, 97, 0.25);
-        padding: 6px 16px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-      }
-      .hero-tag-dot {
-        width: 6px;
-        height: 6px;
-        background: var(--gold);
-        border-radius: 50%;
-        animation: dotPulse 2s ease-in-out infinite;
-      }
-      @keyframes dotPulse {
-        0%,
-        100% {
-          opacity: 1;
-          transform: scale(1);
-        }
-        50% {
-          opacity: 0.4;
-          transform: scale(0.7);
-        }
-      }
-      .hero-tag span {
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--gold);
-        letter-spacing: 2px;
-        text-transform: uppercase;
-      }
-
-      .hero-h1 {
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(34px, 5vw, 64px);
-        font-weight: 900;
-        color: var(--white);
-        line-height: 1.1;
-        margin-bottom: 22px;
-      }
-      .hero-h1 em {
-        color: var(--red);
-        font-style: normal;
-      }
-
-      .hero-sub {
-        font-size: 17px;
-        color: var(--gray);
-        line-height: 1.75;
-        max-width: 540px;
-        margin: 0 auto 36px;
-      }
-
-      .hero-btns {
-        display: flex;
-        gap: 16px;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 28px;
-      }
-
-      .hero-trust {
-        font-size: 12px;
-        color: var(--gray);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-      }
-      .hero-trust-dot {
-        width: 4px;
-        height: 4px;
-        background: var(--red);
-        border-radius: 50%;
-        display: inline-block;
-      }
-
-      /* ============================================================
-   STATS BAR
-   ============================================================ */
-      #stats {
-        padding: 0;
-        background: rgba(13, 27, 42, 0.85);
-        border-top: 1px solid rgba(255, 255, 255, 0.04);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
-        backdrop-filter: blur(10px);
-      }
-      .stats-inner {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 28px 5%;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        flex-wrap: wrap;
-        gap: 16px;
-      }
-      .stat-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        padding: 0 36px;
-        position: relative;
-      }
-      .stat-item:not(:last-child)::after {
-        content: "";
-        position: absolute;
-        right: 0;
-        top: 10%;
-        height: 80%;
-        width: 1px;
-        background: rgba(230, 57, 70, 0.25);
-      }
-      .stat-number {
-        font-family: "Montserrat", sans-serif;
-        font-size: 30px;
-        font-weight: 900;
-        color: var(--red);
-        line-height: 1;
-      }
-      .stat-number.gold {
-        color: var(--gold);
-      }
-      .stat-label {
-        font-size: 12px;
-        color: var(--gray);
-        font-weight: 500;
-        text-align: center;
-      }
-
-      /* ============================================================
-   SERVICES SECTION
-   ============================================================ */
-      #services {
-        background: rgba(8, 15, 23, 0.5);
-      }
-      .services-header {
-        text-align: center;
-      }
-      .services-header .section-sub {
-        margin: 0 auto 52px;
-      }
-
-      .problem-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-
-      .problem-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-left: 3px solid var(--red);
-        border-radius: 14px;
-        padding: 32px 26px;
-        transition: all 0.35s;
-      }
-      .problem-card:hover {
-        transform: translateY(-7px);
-        box-shadow: 0 20px 48px rgba(230, 57, 70, 0.14);
-      }
-
-      .problem-icon {
-        width: 50px;
-        height: 50px;
-        background: rgba(230, 57, 70, 0.1);
-        border: 1px solid rgba(230, 57, 70, 0.25);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--red);
-        margin-bottom: 20px;
-      }
-      .problem-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 17px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 10px;
-      }
-      .problem-text {
-        font-size: 14px;
-        color: var(--gray);
-        line-height: 1.7;
-        margin-bottom: 18px;
-      }
-      .problem-link {
-        font-size: 13px;
-        color: var(--red);
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: gap 0.3s;
-      }
-      .problem-link:hover {
-        gap: 10px;
-      }
-
-      .closing-line {
-        text-align: center;
-        margin-top: 44px;
-        font-size: 15px;
-        color: var(--gold);
-        font-style: italic;
-      }
-
-      /* ============================================================
-   CASE STUDIES
-   ============================================================ */
-      #work {
-        background: rgba(13, 27, 42, 0.4);
-      }
-      .case-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
-      }
-
-      .case-card {
-        background: var(--dark);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-top: 2px solid var(--red);
-        border-radius: 14px;
-        padding: 34px 26px;
-        position: relative;
-        overflow: hidden;
-        transition: all 0.35s;
-      }
-      .case-card::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(
-          135deg,
-          transparent 60%,
-          rgba(230, 57, 70, 0.04)
-        );
-        pointer-events: none;
-      }
-      .case-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 24px 56px rgba(230, 57, 70, 0.18);
-        border-top-color: var(--gold);
-      }
-
-      .case-number-bg {
-        position: absolute;
-        top: 12px;
-        right: 18px;
-        font-family: "Montserrat", sans-serif;
-        font-size: 80px;
-        font-weight: 900;
-        color: rgba(244, 162, 97, 0.07);
-        line-height: 1;
-        user-select: none;
-      }
-      .case-tag {
-        display: inline-block;
-        background: rgba(230, 57, 70, 0.1);
-        border: 1px solid rgba(230, 57, 70, 0.25);
-        color: var(--red);
-        font-size: 10px;
-        font-weight: 700;
-        padding: 4px 10px;
-        border-radius: 100px;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 14px;
-      }
-      .case-icon {
-        font-size: 26px;
-        color: var(--gold);
-        margin-bottom: 12px;
-        display: block;
-      }
-      .case-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 19px;
-        font-weight: 800;
-        color: var(--white);
-        margin-bottom: 10px;
-        line-height: 1.3;
-      }
-      .case-meta {
-        font-size: 13px;
-        color: var(--gray);
-        margin-bottom: 6px;
-        line-height: 1.6;
-      }
-      .case-meta strong {
-        color: var(--white);
-        font-weight: 600;
-      }
-      .case-result {
-        font-size: 22px;
-        font-weight: 800;
-        color: var(--gold);
-        font-family: "Montserrat", sans-serif;
-        margin: 14px 0 6px;
-      }
-      .case-result-text {
-        font-size: 13px;
-        color: var(--gray);
-        margin-bottom: 18px;
-      }
-      .case-link {
-        font-size: 13px;
-        color: var(--red);
-        font-weight: 600;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        transition: gap 0.3s;
-      }
-      .case-link:hover {
-        gap: 10px;
-      }
-      .case-see-all {
-        text-align: center;
-        margin-top: 40px;
-      }
-
-      /* ============================================================
-   PROCESS
-   ============================================================ */
-      #process {
-        background: rgba(8, 15, 23, 0.6);
-      }
-
-      .process-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 22px;
-        position: relative;
-      }
-      .process-grid::before {
-        content: "";
-        position: absolute;
-        top: 38px;
-        left: 12%;
-        right: 12%;
-        height: 1px;
-        background: linear-gradient(90deg, var(--red), var(--gold), var(--red));
-        opacity: 0.22;
-        z-index: 0;
-      }
-      .process-card {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 14px;
-        padding: 30px 22px;
-        position: relative;
-        z-index: 1;
-        transition: all 0.35s;
-      }
-      .process-card:nth-child(odd) {
-        border-top: 2px solid var(--gold);
-      }
-      .process-card:nth-child(even) {
-        border-top: 2px solid var(--red);
-      }
-      .process-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-      }
-
-      .process-num {
-        font-family: "Montserrat", sans-serif;
-        font-size: 44px;
-        font-weight: 900;
-        line-height: 1;
-        margin-bottom: 14px;
-      }
-      .num-gold {
-        color: var(--gold);
-      }
-      .num-red {
-        color: var(--red);
-      }
-      .process-icon {
-        font-size: 22px;
-        margin-bottom: 12px;
-        display: block;
-      }
-      .process-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 15px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 10px;
-      }
-      .process-text {
-        font-size: 13px;
-        color: var(--gray);
-        line-height: 1.7;
-      }
-
-      /* ============================================================
-   CTA
-   ============================================================ */
-      #cta {
-        background: linear-gradient(160deg, var(--navy) 0%, #1a0a0f 100%);
-        text-align: center;
-        overflow: hidden;
-      }
-      #cta::before {
-        content: "";
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 600px;
-        height: 600px;
-        background: radial-gradient(
-          circle,
-          rgba(230, 57, 70, 0.1) 0%,
-          transparent 70%
-        );
-        border-radius: 50%;
-        pointer-events: none;
-      }
-      .cta-inner {
-        position: relative;
-        z-index: 1;
-        max-width: 660px;
-        margin: 0 auto;
-      }
-
-      .cta-badge {
-        display: inline-block;
-        background: rgba(244, 162, 97, 0.1);
-        border: 1px solid rgba(244, 162, 97, 0.25);
-        color: var(--gold);
-        font-size: 10px;
-        font-weight: 700;
-        padding: 6px 16px;
-        border-radius: 100px;
-        letter-spacing: 3px;
-        text-transform: uppercase;
-        margin-bottom: 22px;
-      }
-      .cta-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: clamp(28px, 4vw, 48px);
-        font-weight: 900;
-        color: var(--white);
-        line-height: 1.15;
-        margin-bottom: 18px;
-      }
-      .cta-sub {
-        font-size: 15px;
-        color: var(--gray);
-        line-height: 1.75;
-        margin-bottom: 34px;
-      }
-
-      .btn-cta-large {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: var(--red);
-        color: var(--white);
-        padding: 17px 40px;
-        border-radius: 10px;
-        font-size: 16px;
-        font-weight: 700;
-        border: none;
-        transition: all 0.3s;
-        box-shadow: 0 8px 32px rgba(230, 57, 70, 0.4);
-        animation: ctaPulse 3s ease-in-out infinite;
-      }
-      .btn-cta-large:hover {
-        transform: translateY(-4px);
-        background: #c62d39;
-      }
-      @keyframes ctaPulse {
-        0%,
-        100% {
-          box-shadow: 0 8px 32px rgba(230, 57, 70, 0.4);
-        }
-        50% {
-          box-shadow: 0 8px 50px rgba(230, 57, 70, 0.62);
-        }
-      }
-
-      .cta-trust {
-        margin-top: 18px;
-        font-size: 12px;
-        color: rgba(168, 178, 193, 0.55);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap;
-      }
-      .cta-trust span {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      /* ============================================================
-   CONTACT — Title centered, form & info side by side
-   ============================================================ */
-      #contact {
-        background: rgba(8, 15, 23, 0.8);
-      }
-
-      .contact-header {
-        text-align: center;
-        margin-bottom: 56px;
-      }
-      .contact-header .section-sub {
-        margin: 0 auto;
-      }
-
-      .contact-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 48px;
-        align-items: start;
-      }
-
-      .contact-info {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-
-      .contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .contact-icon-wrap {
-        width: 46px;
-        height: 46px;
-        border-radius: 11px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 17px;
-        flex-shrink: 0;
-        transition: transform 0.3s;
-      }
-      .contact-item:hover .contact-icon-wrap {
-        transform: scale(1.1);
-      }
-      .icon-red {
-        background: rgba(230, 57, 70, 0.1);
-        border: 1px solid rgba(230, 57, 70, 0.25);
-        color: var(--red);
-      }
-      .icon-gold {
-        background: rgba(244, 162, 97, 0.1);
-        border: 1px solid rgba(244, 162, 97, 0.25);
-        color: var(--gold);
-      }
-      .icon-white {
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        color: var(--white);
-      }
-
-      .contact-label {
-        font-size: 10px;
-        color: var(--gray);
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        font-weight: 600;
-        margin-bottom: 4px;
-      }
-      .contact-value {
-        font-size: 15px;
-        color: var(--white);
-        font-weight: 500;
-        transition: color 0.3s;
-      }
-      .contact-value:hover {
-        color: var(--gold);
-      }
-
-      .map-placeholder {
-        width: 100%;
-        height: 180px;
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 12px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        overflow: hidden;
-        margin-top: 6px;
-        position: relative;
-      }
-      .map-grid {
-        position: absolute;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(230, 57, 70, 0.08) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(230, 57, 70, 0.08) 1px, transparent 1px);
-        background-size: 30px 30px;
-      }
-      .map-label {
-        position: relative;
-        z-index: 1;
-        text-align: center;
-      }
-      .map-label i {
-        font-size: 28px;
-        color: var(--red);
-      }
-      .map-label p {
-        font-size: 12px;
-        color: var(--gold);
-        font-weight: 600;
-        margin-top: 6px;
-        letter-spacing: 1px;
-      }
-
-      .contact-form {
-        background: var(--card-bg);
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        border-radius: 16px;
-        padding: 38px;
-      }
-      .form-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 21px;
-        font-weight: 800;
-        color: var(--white);
-        margin-bottom: 26px;
-      }
-
-      .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 16px;
-      }
-      .form-group {
-        margin-bottom: 14px;
-      }
-      .form-group label {
-        display: block;
-        font-size: 11px;
-        font-weight: 600;
-        color: var(--gray);
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        margin-bottom: 7px;
-      }
-
-      .form-group input,
-      .form-group select,
-      .form-group textarea {
-        width: 100%;
-        background: var(--dark);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        border-radius: 8px;
-        padding: 12px 15px;
-        font-size: 14px;
-        color: var(--white);
-        font-family: "Poppins", sans-serif;
-        outline: none;
-        transition:
-          border-color 0.3s,
-          box-shadow 0.3s;
-        appearance: none;
-      }
-      .form-group input::placeholder,
-      .form-group textarea::placeholder {
-        color: rgba(168, 178, 193, 0.35);
-      }
-      .form-group input:focus,
-      .form-group select:focus,
-      .form-group textarea:focus {
-        border-color: var(--gold);
-        box-shadow: 0 0 0 3px rgba(244, 162, 97, 0.08);
-      }
-      .form-group select option {
-        background: var(--dark);
-      }
-      .form-group textarea {
-        resize: vertical;
-        min-height: 96px;
-      }
-
-      .btn-submit {
-        width: 100%;
-        background: var(--red);
-        color: var(--white);
-        padding: 14px;
-        border-radius: 8px;
-        font-size: 15px;
-        font-weight: 700;
-        border: none;
-        font-family: "Poppins", sans-serif;
-        transition: all 0.3s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        margin-top: 18px;
-        box-shadow: 0 4px 18px rgba(230, 57, 70, 0.28);
-      }
-      .btn-submit:hover {
-        background: #c62d39;
-        transform: translateY(-2px);
-      }
-
-      /* ============================================================
-   FOOTER
-   ============================================================ */
-      footer {
-        position: relative;
-        z-index: 1;
-        background: #060c12;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 60px 5% 0;
-      }
-
-      .footer-grid {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1.5fr;
-        gap: 44px;
-        padding-bottom: 44px;
-      }
-
-      .footer-logo-wrap {
-        display: flex;
-        align-items: center;
-        height: 36px;
-        margin-bottom: 14px;
-      }
-      .footer-logo-wrap img {
-        height: 36px;
-        width: auto;
-      }
-
-      .footer-tagline {
-        font-size: 13px;
-        color: var(--gray);
-        line-height: 1.65;
-        margin-bottom: 20px;
-        max-width: 220px;
-      }
-
-      /* Social icons */
-      .social-links {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-      }
-      .social-link {
-        width: 36px;
-        height: 36px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.07);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 14px;
-        color: var(--gray);
-        transition: all 0.3s;
-      }
-      .social-link:hover {
-        background: var(--red);
-        border-color: var(--red);
-        color: var(--white);
-        transform: translateY(-3px);
-      }
-
-      .footer-col-title {
-        font-family: "Montserrat", sans-serif;
-        font-size: 13px;
-        font-weight: 700;
-        color: var(--white);
-        margin-bottom: 18px;
-      }
-
-      .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-      }
-      .footer-links a {
-        font-size: 13px;
-        color: var(--gray);
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        transition:
-          color 0.3s,
-          gap 0.3s;
-      }
-      .footer-links a i {
-        color: var(--red);
-        font-size: 9px;
-      }
-      .footer-links a:hover {
-        color: var(--gold);
-        gap: 10px;
-      }
-
-      .footer-contact-list {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-      }
-      .footer-contact-item {
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        font-size: 12px;
-        color: var(--gray);
-      }
-      .footer-contact-item i {
-        color: var(--gold);
-        font-size: 13px;
-        margin-top: 2px;
-        flex-shrink: 0;
-      }
-
-      .footer-bottom {
-        max-width: 1200px;
-        margin: 0 auto;
-        border-top: 1px solid rgba(255, 255, 255, 0.05);
-        padding: 20px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .footer-copy {
-        font-size: 12px;
-        color: rgba(168, 178, 193, 0.4);
-      }
-      .footer-legal {
-        display: flex;
-        gap: 18px;
-      }
-      .footer-legal a {
-        font-size: 12px;
-        color: rgba(168, 178, 193, 0.4);
-        transition: color 0.3s;
-      }
-      .footer-legal a:hover {
-        color: var(--gold);
-      }
-
-      /* ============================================================
-   RESPONSIVE
-   ============================================================ */
-      @media (max-width: 1024px) {
-        .problem-cards,
-        .case-cards {
-          grid-template-columns: 1fr 1fr;
-        }
-        .process-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-        .process-grid::before {
-          display: none;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr 1fr;
-          gap: 32px;
-        }
-      }
-
-      @media (max-width: 768px) {
-        section {
-          padding: 72px 5%;
-        }
-        .main-nav,
-        .btn-nav-cta {
-          display: none;
-        }
-        .hamburger {
-          display: flex;
-        }
-        .contact-grid,
-        .problem-cards,
-        .case-cards,
-        .process-grid {
-          grid-template-columns: 1fr;
-        }
-        .stat-item {
-          padding: 0 16px;
-        }
-        .stat-item:not(:last-child)::after {
-          display: none;
-        }
-        .stats-inner {
-          justify-content: center;
-          gap: 24px;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr;
-          gap: 28px;
-        }
-        .form-row {
-          grid-template-columns: 1fr;
-        }
-        .hero-h1 {
-          font-size: clamp(28px, 8vw, 44px);
-        }
-      }
-
-      @media (max-width: 480px) {
-        .hero-btns {
-          flex-direction: column;
-          align-items: center;
-        }
-        .contact-form {
-          padding: 24px;
-        }
-      }
-    </style>
+    <!-- ============================================================
+     CSS — All styling in one place
+     ============================================================ -->
+    <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
     <!-- ============================================================
-     ANIMATED BACKGROUND — Planets (no border, blur only)
+     BACKGROUND — Fixed layers (always behind content)
      ============================================================ -->
-    <div class="bg-canvas" aria-hidden="true">
-      <div class="planet planet-1"></div>
-      <div class="planet planet-2"></div>
-      <div class="planet planet-3"></div>
-      <div class="planet planet-4"></div>
+
+    <!-- Blob planets -->
+    <div class="bg-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
     </div>
 
+    <!-- Stars & particles canvas -->
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+
+    <!-- Scanline texture -->
+    <div class="scanline" aria-hidden="true"></div>
+
+    <!-- Scroll progress bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
     <!-- ============================================================
-     MOBILE NAVIGATION
+     MOBILE NAVIGATION — Full screen overlay
      ============================================================ -->
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <button
-        class="mobile-close"
-        onclick="closeMobileNav()"
-        aria-label="Close menu"
-      >
-        <i class="fa-solid fa-xmark"></i>
-      </button>
       <a href="#hero" onclick="closeMobileNav()">Home</a>
       <a href="#services" onclick="closeMobileNav()">Services</a>
       <a href="#work" onclick="closeMobileNav()">Work</a>
       <a href="#process" onclick="closeMobileNav()">Process</a>
       <a href="#contact" onclick="closeMobileNav()">Contact</a>
+      <a href="#contact" onclick="closeMobileNav()" class="mobile-cta"
+        >Get Free Strategy</a
+      >
     </nav>
 
     <!-- ============================================================
      HEADER — Sticky navigation
      ============================================================ -->
     <header id="header" role="banner">
-      <!-- Logo: replace /assets/logo.svg with your file path -->
+      <!-- Logo: replace img/LOGO mindbox.svg with your SVG file -->
       <a href="#hero" class="header-logo" aria-label="MindBox Portal Home">
         <img
           src="img/LOGO mindbox.svg"
           alt="MindBox Portal Logo"
           width="140"
           height="40"
-          color="red"
           onerror="
             this.style.display = 'none';
             this.nextElementSibling.style.display = 'flex';
           "
         />
+        <!-- Text fallback -->
+        <div class="logo-fallback">
+          <span class="logo-mind">Mind</span>
+          <div class="logo-right">
+            <div class="logo-box-line">
+              <span class="logo-box">Box</span>
+              <span class="logo-dash"></span>
+            </div>
+            <span class="logo-portal">Portal</span>
+          </div>
+        </div>
       </a>
 
-      <!-- Desktop nav -->
+      <!-- Desktop nav links -->
       <nav class="main-nav" aria-label="Main navigation">
         <a href="#hero" class="active">Home</a>
         <a href="#services">Services</a>
@@ -1517,56 +114,55 @@
         <a href="#contact">Contact</a>
       </nav>
 
+      <!-- Header CTA -->
       <a href="#contact" class="btn-nav-cta">Get Free Strategy</a>
 
-      <button
-        class="hamburger"
-        onclick="openMobileNav()"
-        aria-label="Open menu"
-      >
-        <span></span><span></span><span></span>
+      <!-- Hamburger button (mobile only) -->
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </header>
 
     <main>
       <!-- ============================================================
-     HERO SECTION — Centered, no visual element
+     HERO SECTION — Hook the visitor in 3 seconds
      ============================================================ -->
       <section id="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-tag fade-up">
             <div class="hero-tag-dot"></div>
-            <span>Dubai's Brand Building Agency 🇦🇪</span>
+            <span>Dubai's Digital Growth Agency </span>
           </div>
 
           <h1 id="hero-title" class="hero-h1 fade-up delay-1">
-            Your Business Is Great.<br />
-            But No One <em>Knows</em> It Yet.
+            We Build Digital Systems<br />That <em>Grow Your Business.</em>
           </h1>
 
           <p class="hero-sub fade-up delay-2">
-            From logo to website to social media — we build your complete
-            digital identity so you can focus on growing your business in Dubai.
+            Websites, paid ads, social media content, and AI automation —
+            everything your business needs to dominate in Dubai.
           </p>
 
           <div class="hero-btns fade-up delay-3">
             <a href="#contact" class="btn-primary">
-              <i class="fa-solid fa-rocket"></i> Get Free Consultation
+              <i class="fa-solid fa-rocket"></i> Get Free Strategy
             </a>
-            <a href="#work" class="btn-secondary">
-              <i class="fa-solid fa-eye"></i> View Our Work
+            <a href="#services" class="btn-secondary">
+              <i class="fa-solid fa-eye"></i> Our Services
             </a>
           </div>
 
           <p class="hero-trust fade-up delay-4">
             <span class="hero-trust-dot"></span>
-            Trusted by startups &amp; businesses across Dubai 🇦🇪
+            Trusted by startups &amp; businesses across Dubai
           </p>
         </div>
       </section>
 
       <!-- ============================================================
-     STATS BAR — Animated counters
+     STATS BAR — Build trust with numbers
      ============================================================ -->
       <div id="stats" role="region" aria-label="Agency statistics">
         <div class="stats-inner">
@@ -1574,14 +170,17 @@
             <span class="stat-number" data-count="50">0+</span>
             <span class="stat-label">Projects Delivered</span>
           </div>
+
           <div class="stat-item fade-up delay-1">
             <span class="stat-number" data-count="30">0+</span>
             <span class="stat-label">Happy Clients</span>
           </div>
+
           <div class="stat-item fade-up delay-2">
             <span class="stat-number gold" data-count="100">0%</span>
-            <span class="stat-label">Brand Satisfaction</span>
+            <span class="stat-label">Client Satisfaction</span>
           </div>
+
           <div class="stat-item fade-up delay-3">
             <span class="stat-number gold">
               <i class="fa-solid fa-location-dot"></i>
@@ -1592,77 +191,155 @@
       </div>
 
       <!-- ============================================================
-     SERVICES SECTION — Problem + solution cards
+     SERVICES SECTION — 4 core services, clear and actionable
+     Each card has a red CTA button to drive contact
      ============================================================ -->
       <section id="services" aria-labelledby="services-title">
         <div class="section-inner">
+          <!-- Section header -->
           <div class="services-header">
             <span class="section-tag fade-up">What We Do</span>
             <h2 id="services-title" class="section-title fade-up">
-              Complete Digital Systems,<br /><em>Not Just Services.</em>
+              4 Services. <em>One Agency.</em><br />Everything You Need to Grow.
             </h2>
             <p class="section-sub fade-up">
-              We don't sell you a logo and disappear. We build the complete
-              system your business needs to grow and win in Dubai's competitive
-              market.
+              We specialize in four core services that work together to grow
+              your business online — no fluff, no wasted budget, just results.
             </p>
           </div>
 
-          <div class="problem-cards">
-            <article class="problem-card fade-up">
-              <div class="problem-icon">
-                <i class="fa-solid fa-circle-question"></i>
+          <!-- Services grid — 2x2 layout -->
+          <div class="services-grid">
+            <!-- Service 1: Web Development -->
+            <article class="service-card fade-up">
+              <div class="service-icon icon-red">
+                <i class="fa-solid fa-code"></i>
               </div>
-              <h3 class="problem-title">No Clear Brand Identity</h3>
-              <p class="problem-text">
-                No logo, no colors, no voice — just a business with no face.
-                Your potential clients don't know who you are or why they should
-                choose you.
+              <span class="service-tag">Service 01</span>
+              <h3 class="service-title">Web Development</h3>
+              <p class="service-desc">
+                We build fast, professional websites and online stores that look
+                stunning on every device and turn visitors into customers.
               </p>
-              <a href="#contact" class="problem-link"
-                >Fix This Now <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <ul class="service-items">
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Custom Code (HTML / CSS /
+                  JS)
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> WordPress Websites
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Shopify Stores
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Payment Integration &
+                  Management
+                </li>
+              </ul>
+              <a href="#contact" class="service-cta">
+                Start Your Website <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
 
-            <article class="problem-card fade-up delay-1">
-              <div class="problem-icon">
-                <i class="fa-solid fa-eye-slash"></i>
+            <!-- Service 2: Paid Ads -->
+            <article class="service-card fade-up delay-1">
+              <div class="service-icon icon-gold">
+                <i class="fa-solid fa-chart-line"></i>
               </div>
-              <h3 class="problem-title">Zero Online Presence</h3>
-              <p class="problem-text">
-                Your competitors are getting clients online while you're
-                completely invisible. No website, no social media, no digital
-                footprint at all.
+              <span class="service-tag">Service 02</span>
+              <h3 class="service-title">Paid Advertising</h3>
+              <p class="service-desc">
+                We create and manage high-performance ad campaigns that bring
+                you real leads and sales — not just clicks.
               </p>
-              <a href="#contact" class="problem-link"
-                >Fix This Now <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <ul class="service-items">
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Meta Ads (Facebook &
+                  Instagram)
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Google Ads (Search &
+                  Display)
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> TikTok Ads
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> ROI Tracking & Optimization
+                </li>
+              </ul>
+              <a href="#contact" class="service-cta">
+                Launch Your Ads <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
 
-            <article class="problem-card fade-up delay-2">
-              <div class="problem-icon">
-                <i class="fa-solid fa-link-slash"></i>
+            <!-- Service 3: Social Media Design -->
+            <article class="service-card fade-up delay-2">
+              <div class="service-icon icon-blue">
+                <i class="fa-solid fa-palette"></i>
               </div>
-              <h3 class="problem-title">Working With 5 Freelancers</h3>
-              <p class="problem-text">
-                No consistency, no unified strategy, just chaos and wasted
-                money. One partner for everything is the only way to build a
-                real brand.
+              <span class="service-tag">Service 03</span>
+              <h3 class="service-title">Social Media Design</h3>
+              <p class="service-desc">
+                We design scroll-stopping social media content that builds your
+                brand, attracts followers, and drives engagement.
               </p>
-              <a href="#contact" class="problem-link"
-                >Fix This Now <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <ul class="service-items">
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Instagram & TikTok Posts
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Stories & Reels Templates
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Brand Visual Identity
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Monthly Content Calendar
+                </li>
+              </ul>
+              <a href="#contact" class="service-cta">
+                Design My Content <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </article>
+
+            <!-- Service 4: AI Automation -->
+            <article class="service-card fade-up delay-3">
+              <div class="service-icon icon-green">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <span class="service-tag">Service 04</span>
+              <h3 class="service-title">AI Automation</h3>
+              <p class="service-desc">
+                We automate your business operations using AI — saving you time,
+                reducing costs, and helping you scale faster.
+              </p>
+              <ul class="service-items">
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> WhatsApp & Chatbot
+                  Automation
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Business Workflow Automation
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> AI Customer Support Systems
+                </li>
+                <li class="service-item">
+                  <i class="fa-solid fa-check"></i> Systems & API Integration
+                </li>
+              </ul>
+              <a href="#contact" class="service-cta">
+                Automate My Business <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
           </div>
-
-          <p class="closing-line fade-up">
-            "That's exactly why we built MindBox Portal." 🇦🇪
-          </p>
         </div>
       </section>
 
       <!-- ============================================================
-     CASE STUDIES — Portfolio results
+     CASE STUDIES — Real results build trust
      ============================================================ -->
       <section id="work" aria-labelledby="work-title">
         <div class="section-inner">
@@ -1672,68 +349,66 @@
           </h2>
 
           <div class="case-cards">
+            <!-- Case 1 -->
             <article class="case-card fade-up">
               <div class="case-number-bg">01</div>
-              <span class="case-tag">Branding</span>
-              <i class="fa-solid fa-gem case-icon"></i>
-              <h3 class="case-title">Brand &amp; Identity System</h3>
+              <span class="case-tag">Web Dev</span>
+              <i class="fa-solid fa-globe case-icon"></i>
+              <h3 class="case-title">Shopify Store — Fashion Brand</h3>
               <p class="case-meta">
-                <strong>Problem:</strong> A new restaurant in Dubai had no
-                visual identity.
+                <strong>Problem:</strong> No online store, losing sales to
+                competitors.
               </p>
               <p class="case-meta">
-                <strong>Solution:</strong> Complete brand identity from logo to
-                packaging.
+                <strong>Solution:</strong> Custom Shopify store with payment
+                integration.
               </p>
-              <div class="case-result">+40% Sales</div>
-              <p class="case-result-text">
-                in the first 30 days after brand launch
-              </p>
-              <a href="/case-studies/brand-identity" class="case-link"
-                >View Case Study <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <div class="case-result">+65% Sales</div>
+              <p class="case-result-text">in the first 45 days after launch</p>
+              <a href="/case-studies/shopify-fashion" class="case-link">
+                View Case Study <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
 
+            <!-- Case 2 -->
             <article class="case-card fade-up delay-1">
               <div class="case-number-bg">02</div>
               <span class="case-tag">Paid Ads</span>
-              <i class="fa-solid fa-rocket case-icon"></i>
-              <h3 class="case-title">Growth &amp; Acquisition System</h3>
+              <i class="fa-solid fa-bullseye case-icon"></i>
+              <h3 class="case-title">Meta Ads — Medical Clinic</h3>
               <p class="case-meta">
-                <strong>Problem:</strong> A clinic had zero online leads coming
-                in.
+                <strong>Problem:</strong> Zero online leads, empty appointments.
               </p>
               <p class="case-meta">
                 <strong>Solution:</strong> Meta Ads + Landing Page + WhatsApp
                 automation.
               </p>
               <div class="case-result">150+ Leads</div>
-              <p class="case-result-text">
-                generated in the first month of campaigns
-              </p>
-              <a href="/case-studies/growth-acquisition" class="case-link"
-                >View Case Study <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <p class="case-result-text">generated in the first 30 days</p>
+              <a href="/case-studies/clinic-meta-ads" class="case-link">
+                View Case Study <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
 
+            <!-- Case 3 -->
             <article class="case-card fade-up delay-2">
               <div class="case-number-bg">03</div>
-              <span class="case-tag">Content</span>
-              <i class="fa-solid fa-film case-icon"></i>
-              <h3 class="case-title">Content &amp; Presence System</h3>
+              <span class="case-tag">AI Automation</span>
+              <i class="fa-solid fa-robot case-icon"></i>
+              <h3 class="case-title">WhatsApp Bot — Restaurant Chain</h3>
               <p class="case-meta">
-                <strong>Problem:</strong> A startup had weak social media with
-                no engagement.
+                <strong>Problem:</strong> Team overwhelmed with customer
+                inquiries.
               </p>
               <p class="case-meta">
-                <strong>Solution:</strong> Full content strategy + Reels +
-                branding.
+                <strong>Solution:</strong> AI WhatsApp bot handling orders &
+                bookings.
               </p>
-              <div class="case-result">+40% Revenue</div>
-              <p class="case-result-text">increase in revenue within 30 days</p>
-              <a href="/case-studies/content-presence" class="case-link"
-                >View Case Study <i class="fa-solid fa-arrow-right"></i
-              ></a>
+              <div class="case-result">80% Less</div>
+              <p class="case-result-text">manual customer support time saved</p>
+              <a href="/case-studies/restaurant-automation" class="case-link">
+                View Case Study <i class="fa-solid fa-arrow-right"></i>
+              </a>
             </article>
           </div>
 
@@ -1746,17 +421,17 @@
       </section>
 
       <!-- ============================================================
-     PROCESS — 4-step workflow
+     PROCESS — How we work in 4 steps
      ============================================================ -->
       <section id="process" aria-labelledby="process-title">
         <div class="section-inner">
           <span class="section-tag fade-up">How We Work</span>
           <h2 id="process-title" class="section-title fade-up">
-            From Idea to Impact<br />in <em>4 Simple Steps.</em>
+            From Day One to Results<br />in <em>4 Simple Steps.</em>
           </h2>
           <p class="section-sub fade-up">
-            A proven system that takes you from zero to a fully launched brand
-            ready to win clients in Dubai.
+            A clear, proven process that takes you from zero to fully launched —
+            with no surprises and no wasted time.
           </p>
 
           <div class="process-grid">
@@ -1764,12 +439,12 @@
               <div class="process-num num-gold">01</div>
               <i
                 class="fa-solid fa-magnifying-glass process-icon"
-                style="color: var(--gold)"
+                style="color: var(--color-gold)"
               ></i>
-              <h3 class="process-title">Discovery &amp; Audit</h3>
+              <h3 class="process-title">Discovery & Audit</h3>
               <p class="process-text">
-                We deep dive into your business, market, and competitors to
-                understand exactly what you need to succeed.
+                We deep dive into your business, competitors, and goals to build
+                the right plan for you.
               </p>
             </article>
 
@@ -1777,12 +452,12 @@
               <div class="process-num num-red">02</div>
               <i
                 class="fa-solid fa-map process-icon"
-                style="color: var(--red)"
+                style="color: var(--color-red)"
               ></i>
-              <h3 class="process-title">Strategy &amp; Planning</h3>
+              <h3 class="process-title">Strategy & Planning</h3>
               <p class="process-text">
-                We build a custom roadmap tailored to your goals, budget, and
-                timeline for maximum impact.
+                We create a custom roadmap with clear deliverables, timelines,
+                and expected results.
               </p>
             </article>
 
@@ -1790,12 +465,12 @@
               <div class="process-num num-gold">03</div>
               <i
                 class="fa-solid fa-hammer process-icon"
-                style="color: var(--gold)"
+                style="color: var(--color-gold)"
               ></i>
-              <h3 class="process-title">Execution &amp; Building</h3>
+              <h3 class="process-title">Execution & Launch</h3>
               <p class="process-text">
-                We design, develop, and launch everything your brand needs to
-                stand out in the Dubai market.
+                We build, design, and launch everything — keeping you updated at
+                every step.
               </p>
             </article>
 
@@ -1803,12 +478,12 @@
               <div class="process-num num-red">04</div>
               <i
                 class="fa-solid fa-chart-line process-icon"
-                style="color: var(--red)"
+                style="color: var(--color-red)"
               ></i>
-              <h3 class="process-title">Optimize &amp; Scale</h3>
+              <h3 class="process-title">Optimize & Scale</h3>
               <p class="process-text">
-                We track results, analyze data, and push your growth further
-                every single month.
+                We track results monthly, optimize performance, and scale what's
+                working.
               </p>
             </article>
           </div>
@@ -1816,38 +491,42 @@
       </section>
 
       <!-- ============================================================
-     CTA SECTION — Book strategy call
+     CTA SECTION — Strong push for action
      ============================================================ -->
       <section id="cta" aria-label="Book a free strategy call">
         <div class="cta-inner">
-          <div class="cta-badge fade-up">Free Consultation</div>
+          <div class="cta-badge fade-up">🎯 Free Strategy Session</div>
+
           <h2 class="cta-title fade-up">
-            Ready to Build a Brand<br />That Gets You Clients?
+            Ready to Grow Your Business<br />in <em>Dubai?</em>
           </h2>
+
           <p class="cta-sub fade-up">
-            Book a free 30-minute strategy session. No commitment. No BS. Just
-            an honest conversation about your business and how we can help you
-            grow.
+            Book a free 30-minute strategy session. We'll review your business,
+            identify the biggest opportunities, and tell you exactly what to do
+            next.
           </p>
+
           <a href="#contact" class="btn-cta-large fade-up">
             <i class="fa-solid fa-calendar-check"></i>
             Book Your Free Strategy Call
           </a>
+
           <div class="cta-trust fade-up delay-1">
-            <span><i class="fa-solid fa-lock"></i> Free consultation</span>
+            <span><i class="fa-solid fa-lock"></i> 100% Free</span>
             <span
               ><i class="fa-regular fa-credit-card"></i> No credit card</span
             >
             <span
-              ><i class="fa-regular fa-clock"></i> Response within 24
-              hours</span
+              ><i class="fa-regular fa-clock"></i> Response in 24 hours</span
             >
           </div>
         </div>
       </section>
 
       <!-- ============================================================
-     CONTACT — Title centered, form & info side by side
+     CONTACT SECTION — Easy to reach us
+     Title centered, form & info side by side
      ============================================================ -->
       <section id="contact" aria-labelledby="contact-title">
         <div class="section-inner">
@@ -1855,20 +534,20 @@
           <div class="contact-header">
             <span class="section-tag fade-up">Get In Touch</span>
             <h2 id="contact-title" class="section-title fade-up">
-              Let's Talk About<br />Your <em>Business.</em>
+              Let's Build Something<br /><em>Great Together.</em>
             </h2>
             <p class="section-sub fade-up">
-              Ready to build something great? We're one message away. Fill in
-              the form or reach out directly — we respond within 24 hours.
+              Tell us about your business and what you need. We'll get back to
+              you within 24 hours with a clear plan.
             </p>
           </div>
 
           <!-- Info + Form side by side -->
           <div class="contact-grid">
-            <!-- Left: Contact info + map -->
+            <!-- Contact Info -->
             <div class="contact-info">
               <div class="contact-item fade-up">
-                <div class="contact-icon-wrap icon-red">
+                <div class="contact-icon-wrap c-icon-red">
                   <i class="fa-brands fa-whatsapp"></i>
                 </div>
                 <div>
@@ -1878,25 +557,26 @@
                     class="contact-value"
                     target="_blank"
                     rel="noopener"
-                    >+971 50 000 0000</a
                   >
+                    +971 50 000 0000
+                  </a>
                 </div>
               </div>
 
               <div class="contact-item fade-up delay-1">
-                <div class="contact-icon-wrap icon-gold">
+                <div class="contact-icon-wrap c-icon-gold">
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div>
                   <p class="contact-label">Email</p>
-                  <a href="mailto:info@mindboxportal.com" class="contact-value"
-                    >info@mindboxportal.com</a
-                  >
+                  <a href="mailto:info@mindboxportal.com" class="contact-value">
+                    info@mindboxportal.com
+                  </a>
                 </div>
               </div>
 
-              <div class="contact-item fade-up delay-2">
-                <div class="contact-icon-wrap icon-white">
+              <!-- <div class="contact-item fade-up delay-2">
+                <div class="contact-icon-wrap c-icon-white">
                   <i class="fa-solid fa-globe"></i>
                 </div>
                 <div>
@@ -1906,23 +586,23 @@
                     class="contact-value"
                     target="_blank"
                     rel="noopener"
-                    >mindboxportal.com</a
                   >
+                    mindboxportal.com
+                  </a>
                 </div>
-              </div>
+              </div>-->
 
               <div class="contact-item fade-up delay-3">
-                <div class="contact-icon-wrap icon-gold">
+                <div class="contact-icon-wrap c-icon-gold">
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div>
                   <p class="contact-label">Location</p>
-                  <span class="contact-value"
-                    >Dubai, United Arab Emirates 🇦🇪</span
-                  >
+                  <span class="contact-value">Dubai, United Arab Emirates</span>
                 </div>
               </div>
 
+              <!-- Map placeholder -->
               <div class="map-placeholder fade-up">
                 <div class="map-grid"></div>
                 <div class="map-label">
@@ -1932,7 +612,7 @@
               </div>
             </div>
 
-            <!-- Right: Contact form -->
+            <!-- Contact Form -->
             <div class="contact-form fade-up delay-1">
               <h3 class="form-title">Send Us a Message</h3>
 
@@ -1970,16 +650,14 @@
               </div>
 
               <div class="form-group">
-                <label for="fservice">What Do You Need?</label>
+                <label for="fservice">Which Service Do You Need?</label>
                 <select id="fservice" name="service">
                   <option value="" disabled selected>Select a service</option>
-                  <option value="brand">Brand Identity &amp; Logo</option>
-                  <option value="web">Website Development</option>
-                  <option value="social">Social Media Management</option>
+                  <option value="web">Web Development</option>
                   <option value="ads">Paid Advertising</option>
-                  <option value="video">Video Production</option>
+                  <option value="social">Social Media Design</option>
                   <option value="ai">AI Automation</option>
-                  <option value="full">Full Package (Everything)</option>
+                  <option value="full">Full Package (All Services)</option>
                 </select>
               </div>
 
@@ -1988,7 +666,7 @@
                 <textarea
                   id="fmessage"
                   name="message"
-                  placeholder="Brief description of your business and what you need..."
+                  placeholder="Brief description of your business and what you're looking for..."
                 ></textarea>
               </div>
 
@@ -2006,13 +684,12 @@
     </main>
 
     <!-- ============================================================
-     FOOTER — Social icons, links, copyright
+     FOOTER — Links, social icons, copyright
      ============================================================ -->
     <footer role="contentinfo">
       <div class="footer-grid">
-        <!-- Brand + Social -->
+        <!-- Brand column -->
         <div>
-          <!-- Replace /assets/logo.svg with your file -->
           <div class="footer-logo-wrap">
             <img
               src="img/LOGO mindbox.svg"
@@ -2024,14 +701,24 @@
                 this.nextElementSibling.style.display = 'flex';
               "
             />
+            <div class="logo-fallback">
+              <span class="logo-mind" style="font-size: 20px">Mind</span>
+              <div class="logo-right">
+                <div class="logo-box-line">
+                  <span class="logo-box" style="font-size: 10px">Box</span>
+                  <span class="logo-dash" style="width: 12px"></span>
+                </div>
+                <span class="logo-portal" style="font-size: 10px">Portal</span>
+              </div>
+            </div>
           </div>
 
           <p class="footer-tagline">
-            Building brands that win in Dubai. Your complete digital partner
-            from day one.
+            Dubai's digital growth agency — websites, ads, social media, and AI
+            automation.
           </p>
 
-          <!-- Social media icons: Facebook, Instagram, LinkedIn, TikTok, Behance -->
+          <!-- Social media icons -->
           <div class="social-links">
             <a
               href="https://facebook.com/mindboxportal"
@@ -2085,20 +772,14 @@
         <div>
           <h4 class="footer-col-title">Services</h4>
           <nav class="footer-links" aria-label="Services">
-            <a href="/services/brand-identity">
-              <i class="fa-solid fa-chevron-right"></i> Brand Identity</a
-            >
             <a href="/services/web-development">
               <i class="fa-solid fa-chevron-right"></i> Web Development</a
-            >
-            <a href="/services/social-media">
-              <i class="fa-solid fa-chevron-right"></i> Social Media</a
             >
             <a href="/services/paid-advertising">
               <i class="fa-solid fa-chevron-right"></i> Paid Advertising</a
             >
-            <a href="/services/video-production">
-              <i class="fa-solid fa-chevron-right"></i> Video Production</a
+            <a href="/services/social-media">
+              <i class="fa-solid fa-chevron-right"></i> Social Media Design</a
             >
             <a href="/services/ai-automation">
               <i class="fa-solid fa-chevron-right"></i> AI Automation</a
@@ -2152,7 +833,6 @@
           © 2026 MindBox Portal. All rights reserved. <br />
           Website Created by Ahmed Al Gamal
         </p>
-
         <nav class="footer-legal" aria-label="Legal">
           <a href="/privacy-policy">Privacy Policy</a>
           <a href="/terms-of-service">Terms of Service</a>
@@ -2161,25 +841,62 @@
     </footer>
 
     <!-- ============================================================
-     JAVASCRIPT
+     JAVASCRIPT — Interactions & Animations
      ============================================================ -->
     <script>
-      /* --- Header scroll effect --- */
+      /* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+      const scrollProgress = document.getElementById("scrollProgress");
+      window.addEventListener("scroll", () => {
+        const pct =
+          (window.scrollY /
+            (document.documentElement.scrollHeight - window.innerHeight)) *
+          100;
+        scrollProgress.style.width = pct + "%";
+      });
+
+      /* ============================================================
+   HEADER — Add background on scroll
+   ============================================================ */
       window.addEventListener("scroll", () => {
         document
           .getElementById("header")
           .classList.toggle("scrolled", window.scrollY > 50);
       });
 
-      /* --- Mobile nav --- */
+      /* ============================================================
+   HAMBURGER + MOBILE NAV — Toggle with X animation
+   ============================================================ */
+      const hamburgerBtn = document.getElementById("hamburgerBtn");
+      const mobileNav = document.getElementById("mobileNav");
+
+      hamburgerBtn.addEventListener("click", () => {
+        mobileNav.classList.contains("open")
+          ? closeMobileNav()
+          : openMobileNav();
+      });
+
       function openMobileNav() {
-        document.getElementById("mobileNav").classList.add("open");
-      }
-      function closeMobileNav() {
-        document.getElementById("mobileNav").classList.remove("open");
+        mobileNav.classList.add("open");
+        hamburgerBtn.classList.add("open");
+        document.body.style.overflow = "hidden";
       }
 
-      /* --- Fade-up scroll animations --- */
+      function closeMobileNav() {
+        mobileNav.classList.remove("open");
+        hamburgerBtn.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+
+      /* Close on ESC key */
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeMobileNav();
+      });
+
+      /* ============================================================
+   SCROLL REVEAL — Fade up animations
+   ============================================================ */
       const fadeObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -2193,7 +910,9 @@
         .querySelectorAll(".fade-up")
         .forEach((el) => fadeObserver.observe(el));
 
-      /* --- Counter animations for stats --- */
+      /* ============================================================
+   COUNTER ANIMATION — Stat numbers count up
+   ============================================================ */
       const counterObserver = new IntersectionObserver(
         (entries) => {
           entries.forEach((e) => {
@@ -2213,8 +932,7 @@
       function animateCounter(el) {
         const target = parseInt(el.dataset.count);
         const suffix = el.dataset.count == "100" ? "%" : "+";
-        const duration = 1800;
-        const step = target / (duration / 16);
+        const step = target / (1800 / 16);
         let current = 0;
         const timer = setInterval(() => {
           current += step;
@@ -2226,28 +944,33 @@
         }, 16);
       }
 
-      /* --- Active nav link on scroll --- */
-      const sections = document.querySelectorAll("section[id]");
+      /* ============================================================
+   ACTIVE NAV LINK — Highlights current section in nav
+   ============================================================ */
+      const allSections = document.querySelectorAll("section[id]");
       const navLinks = document.querySelectorAll(".main-nav a");
 
       window.addEventListener("scroll", () => {
         let current = "";
-        sections.forEach((sec) => {
-          if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+        allSections.forEach((s) => {
+          if (window.scrollY >= s.offsetTop - 120) current = s.id;
         });
-        navLinks.forEach((link) => {
-          link.classList.toggle(
+        navLinks.forEach((l) => {
+          l.classList.toggle(
             "active",
-            link.getAttribute("href") === "#" + current,
+            l.getAttribute("href") === "#" + current,
           );
         });
       });
 
-      /* --- Contact form handler --- */
+      /* ============================================================
+   CONTACT FORM — Submit handler with loading state
+   ============================================================ */
       function handleSubmit(btn) {
         btn.innerHTML =
           '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
         btn.style.opacity = "0.75";
+
         setTimeout(() => {
           btn.innerHTML =
             '<i class="fa-solid fa-check"></i> Message Sent! We\'ll respond in 24h';
@@ -2256,12 +979,198 @@
         }, 1500);
       }
 
-      /* --- Trigger hero on load --- */
+      /* ============================================================
+   HERO FADE-IN — Trigger animations on page load
+   ============================================================ */
       window.addEventListener("load", () => {
         document
           .querySelectorAll("#hero .fade-up")
           .forEach((el) => el.classList.add("visible"));
       });
+
+      /* ============================================================
+   CANVAS BACKGROUND — Stars, particles & shooting stars
+   Calm version: fewer particles, slower movement
+   ============================================================ */
+      const canvas = document.getElementById("bgCanvas");
+      const ctx = canvas.getContext("2d");
+      let W, H, particles, shootingStars;
+      let mouse = { x: null, y: null };
+
+      /* Track mouse for subtle interaction */
+      window.addEventListener("mousemove", (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+      });
+      window.addEventListener("mouseleave", () => {
+        mouse.x = null;
+        mouse.y = null;
+      });
+
+      function resizeCanvas() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        initParticles();
+      }
+
+      /* Particle class — small drifting stars */
+      class Particle {
+        constructor() {
+          this.reset(true);
+        }
+
+        reset(initial) {
+          this.x = Math.random() * W;
+          this.y = initial ? Math.random() * H : H + 10;
+          this.size = Math.random() * 1.4 + 0.2;
+          this.speedX = (Math.random() - 0.5) * 0.15; /* slower */
+          this.speedY = -(Math.random() * 0.2 + 0.05); /* slower */
+          this.life = initial ? Math.random() * 300 : 0;
+          this.maxLife = Math.random() * 320 + 200;
+          const r = Math.random();
+          this.color =
+            r < 0.75
+              ? "rgba(255,255,255,"
+              : r < 0.9
+                ? "rgba(230,57,70,"
+                : "rgba(244,162,97,";
+        }
+
+        update() {
+          this.life++;
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          /* Very subtle mouse repulsion */
+          if (mouse.x !== null) {
+            const dx = this.x - mouse.x;
+            const dy = this.y - mouse.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 80) {
+              this.x += (dx / d) * 0.3;
+              this.y += (dy / d) * 0.3;
+            }
+          }
+
+          if (this.life >= this.maxLife || this.y < -10) this.reset(false);
+        }
+
+        draw() {
+          const a = Math.sin((this.life / this.maxLife) * Math.PI) * 0.7;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+          ctx.fillStyle = this.color + a + ")";
+          ctx.fill();
+
+          /* Subtle glow for larger stars */
+          if (this.size > 1.0) {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + a * 0.08 + ")";
+            ctx.fill();
+          }
+        }
+      }
+
+      /* Shooting star class */
+      class ShootingStar {
+        constructor() {
+          this.reset();
+        }
+
+        reset() {
+          this.x = Math.random() * W * 0.7;
+          this.y = Math.random() * H * 0.35;
+          this.len = Math.random() * 110 + 50;
+          this.speed = Math.random() * 7 + 4;
+          this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4;
+          this.life = 0;
+          this.maxLife = 55;
+          this.active = false;
+          this.wait = 0;
+          this.next = Math.random() * 600 + 400; /* longer wait = rarer */
+        }
+
+        update() {
+          if (!this.active) {
+            this.wait++;
+            if (this.wait >= this.next) {
+              this.active = true;
+              this.wait = 0;
+            }
+            return;
+          }
+          this.life++;
+          this.x += Math.cos(this.angle) * this.speed;
+          this.y += Math.sin(this.angle) * this.speed;
+          if (this.life >= this.maxLife) this.reset();
+        }
+
+        draw() {
+          if (!this.active) return;
+          const a = 1 - this.life / this.maxLife;
+          const tx = this.x - Math.cos(this.angle) * this.len;
+          const ty = this.y - Math.sin(this.angle) * this.len;
+          const g = ctx.createLinearGradient(tx, ty, this.x, this.y);
+          g.addColorStop(0, "rgba(255,255,255,0)");
+          g.addColorStop(1, `rgba(255,255,255,${a * 0.85})`);
+          ctx.beginPath();
+          ctx.moveTo(tx, ty);
+          ctx.lineTo(this.x, this.y);
+          ctx.strokeStyle = g;
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255,255,255,${a})`;
+          ctx.fill();
+        }
+      }
+
+      /* Draw faint connections between nearby particles */
+      function drawConnections() {
+        const maxD = 80; /* shorter distance = fewer lines = calmer */
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < maxD) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(230,57,70,${(1 - d / maxD) * 0.05})`;
+              ctx.lineWidth = 0.4;
+              ctx.stroke();
+            }
+          }
+        }
+      }
+
+      function initParticles() {
+        /* Fewer particles for calmer effect */
+        const count = Math.min(Math.floor((W * H) / 10000), 80);
+        particles = Array.from({ length: count }, () => new Particle());
+        shootingStars = Array.from({ length: 2 }, () => new ShootingStar());
+      }
+
+      function animateBg() {
+        ctx.clearRect(0, 0, W, H);
+        drawConnections();
+        particles.forEach((p) => {
+          p.update();
+          p.draw();
+        });
+        shootingStars.forEach((s) => {
+          s.update();
+          s.draw();
+        });
+        requestAnimationFrame(animateBg);
+      }
+
+      window.addEventListener("resize", resizeCanvas);
+      resizeCanvas();
+      animateBg();
     </script>
   </body>
 </html>
