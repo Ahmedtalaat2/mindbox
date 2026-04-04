@@ -3,24 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MindBox Portal — Dubai's Brand Building Agency</title>
+    <title id="pageTitle">MindBox Portal — Dubai's Digital Growth Agency</title>
     <meta
       name="description"
+      id="metaDescription"
       content="MindBox Portal — Web Development, Paid Ads, Social Media Design & AI Automation for businesses in Dubai."
     />
     <meta
       name="keywords"
-      content="web development Dubai, paid ads Dubai, social media design Dubai, AI automation Dubai, MindBox Portal"
+      id="metaKeywords"
+      content="MindBox Portal, web development Dubai, paid ads Dubai, social media design Dubai, AI automation Dubai"
     />
-    <meta name="author" content="MindBox Portal" />
+    <meta name="author" content="Ahmed El Gamal — MindBox Portal" />
     <meta name="robots" content="index, follow" />
     <meta
       property="og:title"
-      content="MindBox Portal — Dubai's Digital Agency"
+      id="ogTitle"
+      content="MindBox Portal — Dubai's Digital Growth Agency"
     />
     <meta
       property="og:description"
-      content="We build websites, run ads, design social media content, and automate your business in Dubai."
+      id="ogDescription"
+      content="Websites, paid ads, social media content & AI automation for businesses in Dubai."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://mindboxportal.com" />
@@ -35,52 +39,73 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
-
-    <!-- ============================================================
-     CSS — All styling in one place
-     ============================================================ -->
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- ============================================================
-     BACKGROUND — Fixed layers (always behind content)
-     ============================================================ -->
-
-    <!-- Blob planets -->
+    <!-- BACKGROUND -->
     <div class="bg-blobs" aria-hidden="true">
       <div class="blob blob-1"></div>
       <div class="blob blob-2"></div>
       <div class="blob blob-3"></div>
     </div>
-
-    <!-- Stars & particles canvas -->
     <canvas id="bgCanvas" aria-hidden="true"></canvas>
-
-    <!-- Scanline texture -->
-    <div class="scanline" aria-hidden="true"></div>
-
-    <!-- Scroll progress bar -->
+    <div class="bg-noise" aria-hidden="true"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <!-- ============================================================
-     MOBILE NAVIGATION — Full screen overlay
-     ============================================================ -->
+    <!-- MOBILE NAVIGATION -->
     <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
-      <a href="#hero" onclick="closeMobileNav()">Home</a>
-      <a href="#services" onclick="closeMobileNav()">Services</a>
-      <a href="#work" onclick="closeMobileNav()">Work</a>
-      <a href="#process" onclick="closeMobileNav()">Process</a>
-      <a href="#contact" onclick="closeMobileNav()">Contact</a>
-      <a href="#contact" onclick="closeMobileNav()" class="mobile-cta"
+      <a href="#hero" class="mobile-nav-home" onclick="closeMobileNav()"
+        >Home</a
+      >
+      <a href="#services" class="mobile-nav-services" onclick="closeMobileNav()"
+        >Services</a
+      >
+      <a href="#work" class="mobile-nav-work" onclick="closeMobileNav()"
+        >Work</a
+      >
+      <a href="#process" class="mobile-nav-process" onclick="closeMobileNav()"
+        >Process</a
+      >
+      <a href="#contact" class="mobile-nav-contact" onclick="closeMobileNav()"
+        >Contact</a
+      >
+
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-switcher">
+        <div class="mobile-lang-current" onclick="toggleMobileLangDropdown()">
+          <i class="fa-solid fa-globe"></i>
+          <span class="mobile-lang-text">English</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="mobile-lang-dropdown" id="mobileLangDropdown">
+          <a
+            href="#"
+            onclick="
+              switchLanguage('en');
+              closeMobileNav();
+              return false;
+            "
+            >English</a
+          >
+          <a
+            href="#"
+            onclick="
+              switchLanguage('ar');
+              closeMobileNav();
+              return false;
+            "
+            >العربية</a
+          >
+        </div>
+      </div>
+
+      <a href="#contact" class="mobile-cta" onclick="closeMobileNav()"
         >Get Free Strategy</a
       >
     </nav>
 
-    <!-- ============================================================
-     HEADER — Sticky navigation
-     ============================================================ -->
+    <!-- HEADER -->
     <header id="header" role="banner">
-      <!-- Logo: replace img/LOGO mindbox.svg with your SVG file -->
       <a href="#hero" class="header-logo" aria-label="MindBox Portal Home">
         <img
           src="img/LOGO mindbox.svg"
@@ -92,7 +117,6 @@
             this.nextElementSibling.style.display = 'flex';
           "
         />
-        <!-- Text fallback -->
         <div class="logo-fallback">
           <span class="logo-mind">Mind</span>
           <div class="logo-right">
@@ -105,383 +129,419 @@
         </div>
       </a>
 
-      <!-- Desktop nav links -->
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="#hero" class="active">Home</a>
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#contact">Contact</a>
+        <a href="#hero" class="nav-home">Home</a>
+        <a href="#services" class="nav-services">Services</a>
+        <a href="#work" class="nav-work">Work</a>
+        <a href="#process" class="nav-process">Process</a>
+        <a href="#contact" class="nav-contact">Contact</a>
       </nav>
 
-      <!-- Header CTA -->
-      <a href="#contact" class="btn-nav-cta">Get Free Strategy</a>
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn">
+          <i class="fa-solid fa-globe"></i>
+          <span class="lang-btn-text">English</span>
+        </button>
+        <div class="lang-dropdown">
+          <a
+            href="#"
+            onclick="
+              switchLanguage('en');
+              return false;
+            "
+            >English</a
+          >
+          <a
+            href="#"
+            onclick="
+              switchLanguage('ar');
+              return false;
+            "
+            >العربية</a
+          >
+        </div>
+      </div>
 
-      <!-- Hamburger button (mobile only) -->
-      <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+      <a href="#contact" class="btn-nav-cta cta-btn-text">Get Free Strategy</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
       </button>
     </header>
 
     <main>
-      <!-- ============================================================
-     HERO SECTION — Hook the visitor in 3 seconds
-     ============================================================ -->
+      <!-- HERO SECTION -->
       <section id="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
           <div class="hero-tag fade-up">
             <div class="hero-tag-dot"></div>
-            <span>Dubai's Digital Growth Agency </span>
+            <span class="hero-tag-text">Dubai's Digital Growth Agency 🇦🇪</span>
           </div>
-
           <h1 id="hero-title" class="hero-h1 fade-up delay-1">
             We Build Digital Systems<br />That <em>Grow Your Business.</em>
           </h1>
-
           <p class="hero-sub fade-up delay-2">
             Websites, paid ads, social media content, and AI automation —
-            everything your business needs to dominate in Dubai.
+            everything your business needs to dominate online in Dubai.
           </p>
-
           <div class="hero-btns fade-up delay-3">
-            <a href="#contact" class="btn-primary">
-              <i class="fa-solid fa-rocket"></i> Get Free Strategy
-            </a>
-            <a href="#services" class="btn-secondary">
-              <i class="fa-solid fa-eye"></i> Our Services
-            </a>
+            <a href="#contact" class="btn-primary hero-cta-btn"
+              ><i class="fa-solid fa-rocket"></i> Get Free Strategy</a
+            >
+            <a href="#services" class="btn-secondary hero-services-btn"
+              ><i class="fa-solid fa-eye"></i> Our Services</a
+            >
           </div>
-
           <p class="hero-trust fade-up delay-4">
             <span class="hero-trust-dot"></span>
-            Trusted by startups &amp; businesses across Dubai
+            <span class="hero-trust-text"
+              >Trusted by startups &amp; businesses across Dubai 🇦🇪</span
+            >
           </p>
         </div>
       </section>
 
-      <!-- ============================================================
-     STATS BAR — Build trust with numbers
-     ============================================================ -->
+      <!-- STATS BAR -->
       <div id="stats" role="region" aria-label="Agency statistics">
         <div class="stats-inner">
           <div class="stat-item fade-up">
             <span class="stat-number" data-count="50">0+</span>
-            <span class="stat-label">Projects Delivered</span>
+            <span class="stat-label stat-projects">Projects Delivered</span>
           </div>
-
           <div class="stat-item fade-up delay-1">
             <span class="stat-number" data-count="30">0+</span>
-            <span class="stat-label">Happy Clients</span>
+            <span class="stat-label stat-clients">Happy Clients</span>
           </div>
-
           <div class="stat-item fade-up delay-2">
             <span class="stat-number gold" data-count="100">0%</span>
-            <span class="stat-label">Client Satisfaction</span>
+            <span class="stat-label stat-satisfaction"
+              >Client Satisfaction</span
+            >
           </div>
-
           <div class="stat-item fade-up delay-3">
-            <span class="stat-number gold">
-              <i class="fa-solid fa-location-dot"></i>
-            </span>
-            <span class="stat-label">Dubai Based Agency</span>
+            <span class="stat-number gold"
+              ><i class="fa-solid fa-location-dot"></i
+            ></span>
+            <span class="stat-label stat-location">Dubai Based</span>
           </div>
         </div>
       </div>
 
-      <!-- ============================================================
-     SERVICES SECTION — 4 core services, clear and actionable
-     Each card has a red CTA button to drive contact
-     ============================================================ -->
+      <!-- SERVICES SECTION -->
       <section id="services" aria-labelledby="services-title">
         <div class="section-inner">
-          <!-- Section header -->
           <div class="services-header">
-            <span class="section-tag fade-up">What We Do</span>
+            <span class="section-tag services-tag">What We Do</span>
             <h2 id="services-title" class="section-title fade-up">
-              4 Services. <em>One Agency.</em><br />Everything You Need to Grow.
+              4 Services. <em>One Agency.</em>
             </h2>
-            <p class="section-sub fade-up">
-              We specialize in four core services that work together to grow
-              your business online — no fluff, no wasted budget, just results.
+            <p class="section-sub services-sub">
+              We focus on four core services that work together to grow your
+              business — no fluff, no wasted budget, just measurable results.
             </p>
           </div>
-
-          <!-- Services grid — 2x2 layout -->
           <div class="services-grid">
-            <!-- Service 1: Web Development -->
+            <!-- Service 1 -->
             <article class="service-card fade-up">
               <div class="service-icon icon-red">
                 <i class="fa-solid fa-code"></i>
               </div>
               <span class="service-tag">Service 01</span>
-              <h3 class="service-title">Web Development</h3>
-              <p class="service-desc">
-                We build fast, professional websites and online stores that look
-                stunning on every device and turn visitors into customers.
+              <h3 class="service-title service-title-1">Web Development</h3>
+              <p class="service-desc service-desc-1">
+                Fast, professional websites and online stores that convert
+                visitors into customers.
               </p>
               <ul class="service-items">
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Custom Code (HTML / CSS /
-                  JS)
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-1a">Custom Code (HTML/CSS/JS)</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> WordPress Websites
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-1b">WordPress Websites</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Shopify Stores
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-1c">Shopify Stores</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Payment Integration &
-                  Management
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-1d">Payment Integration</span>
                 </li>
               </ul>
-              <a href="#contact" class="service-cta">
-                Start Your Website <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <a href="#contact" class="service-cta service-cta-1"
+                >Start Your Website <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
-
-            <!-- Service 2: Paid Ads -->
+            <!-- Service 2 -->
             <article class="service-card fade-up delay-1">
               <div class="service-icon icon-gold">
                 <i class="fa-solid fa-chart-line"></i>
               </div>
               <span class="service-tag">Service 02</span>
-              <h3 class="service-title">Paid Advertising</h3>
-              <p class="service-desc">
-                We create and manage high-performance ad campaigns that bring
-                you real leads and sales — not just clicks.
+              <h3 class="service-title service-title-2">Paid Advertising</h3>
+              <p class="service-desc service-desc-2">
+                High-performance ad campaigns that bring you real leads and
+                sales — not just clicks.
               </p>
               <ul class="service-items">
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Meta Ads (Facebook &
-                  Instagram)
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-2a">Meta Ads (FB & Instagram)</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Google Ads (Search &
-                  Display)
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-2b">Google Ads</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> TikTok Ads
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-2c">TikTok Ads</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> ROI Tracking & Optimization
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-2d"
+                    >ROI Tracking & Optimization</span
+                  >
                 </li>
               </ul>
-              <a href="#contact" class="service-cta">
-                Launch Your Ads <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <a href="#contact" class="service-cta service-cta-2"
+                >Launch Your Ads <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
-
-            <!-- Service 3: Social Media Design -->
+            <!-- Service 3 -->
             <article class="service-card fade-up delay-2">
               <div class="service-icon icon-blue">
                 <i class="fa-solid fa-palette"></i>
               </div>
               <span class="service-tag">Service 03</span>
-              <h3 class="service-title">Social Media Design</h3>
-              <p class="service-desc">
-                We design scroll-stopping social media content that builds your
-                brand, attracts followers, and drives engagement.
+              <h3 class="service-title service-title-3">Social Media Design</h3>
+              <p class="service-desc service-desc-3">
+                Scroll-stopping content that builds your brand and drives real
+                engagement.
               </p>
               <ul class="service-items">
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Instagram & TikTok Posts
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-3a">Instagram & TikTok Posts</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Stories & Reels Templates
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-3b">Stories & Reels Templates</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Brand Visual Identity
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-3c">Brand Visual Identity</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Monthly Content Calendar
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-3d">Monthly Content Calendar</span>
                 </li>
               </ul>
-              <a href="#contact" class="service-cta">
-                Design My Content <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <a href="#contact" class="service-cta service-cta-3"
+                >Design My Content <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
-
-            <!-- Service 4: AI Automation -->
+            <!-- Service 4 -->
             <article class="service-card fade-up delay-3">
               <div class="service-icon icon-green">
                 <i class="fa-solid fa-robot"></i>
               </div>
               <span class="service-tag">Service 04</span>
-              <h3 class="service-title">AI Automation</h3>
-              <p class="service-desc">
-                We automate your business operations using AI — saving you time,
-                reducing costs, and helping you scale faster.
+              <h3 class="service-title service-title-4">AI Automation</h3>
+              <p class="service-desc service-desc-4">
+                Automate your business operations with AI — save time and scale
+                faster.
               </p>
               <ul class="service-items">
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> WhatsApp & Chatbot
-                  Automation
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-4a"
+                    >WhatsApp & Chatbot Systems</span
+                  >
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Business Workflow Automation
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-4b"
+                    >Business Workflow Automation</span
+                  >
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> AI Customer Support Systems
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-4c">AI Customer Support</span>
                 </li>
                 <li class="service-item">
-                  <i class="fa-solid fa-check"></i> Systems & API Integration
+                  <i class="fa-solid fa-check"></i>
+                  <span class="service-item-4d">Systems & API Integration</span>
                 </li>
               </ul>
-              <a href="#contact" class="service-cta">
-                Automate My Business <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <a href="#contact" class="service-cta service-cta-4"
+                >Automate My Business <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ============================================================
-     CASE STUDIES — Real results build trust
-     ============================================================ -->
+      <!-- CASE STUDIES SECTION -->
       <section id="work" aria-labelledby="work-title">
         <div class="section-inner">
-          <span class="section-tag fade-up">Our Work</span>
+          <span class="section-tag work-tag">Our Work</span>
           <h2 id="work-title" class="section-title fade-up">
             Results That Speak<br /><em>Louder Than Promises.</em>
           </h2>
-
           <div class="case-cards">
-            <!-- Case 1 -->
             <article class="case-card fade-up">
               <div class="case-number-bg">01</div>
-              <span class="case-tag">Web Dev</span>
+              <span class="case-tag case-tag-1">Web Dev</span>
               <i class="fa-solid fa-globe case-icon"></i>
-              <h3 class="case-title">Shopify Store — Fashion Brand</h3>
+              <h3 class="case-title case-title-1">
+                Shopify Store — Fashion Brand
+              </h3>
               <p class="case-meta">
-                <strong>Problem:</strong> No online store, losing sales to
-                competitors.
+                <strong class="case-problem-label">Problem:</strong>
+                <span class="case-problem-text-1"
+                  >No online store, losing sales to competitors.</span
+                >
               </p>
               <p class="case-meta">
-                <strong>Solution:</strong> Custom Shopify store with payment
-                integration.
+                <strong class="case-solution-label">Solution:</strong>
+                <span class="case-solution-text-1"
+                  >Custom Shopify store with payment integration.</span
+                >
               </p>
               <div class="case-result">+65% Sales</div>
-              <p class="case-result-text">in the first 45 days after launch</p>
-              <a href="/case-studies/shopify-fashion" class="case-link">
-                View Case Study <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <p class="case-result-text case-result-text-1">
+                in the first 45 days after launch
+              </p>
+              <a href="/case-studies/shopify-fashion" class="case-link"
+                >View Case Study <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
-
-            <!-- Case 2 -->
             <article class="case-card fade-up delay-1">
               <div class="case-number-bg">02</div>
-              <span class="case-tag">Paid Ads</span>
+              <span class="case-tag case-tag-2">Paid Ads</span>
               <i class="fa-solid fa-bullseye case-icon"></i>
-              <h3 class="case-title">Meta Ads — Medical Clinic</h3>
+              <h3 class="case-title case-title-2">Meta Ads — Medical Clinic</h3>
               <p class="case-meta">
-                <strong>Problem:</strong> Zero online leads, empty appointments.
+                <strong class="case-problem-label">Problem:</strong>
+                <span class="case-problem-text-2"
+                  >Zero online leads, empty appointment slots.</span
+                >
               </p>
               <p class="case-meta">
-                <strong>Solution:</strong> Meta Ads + Landing Page + WhatsApp
-                automation.
+                <strong class="case-solution-label">Solution:</strong>
+                <span class="case-solution-text-2"
+                  >Meta Ads + Landing Page + WhatsApp automation.</span
+                >
               </p>
               <div class="case-result">150+ Leads</div>
-              <p class="case-result-text">generated in the first 30 days</p>
-              <a href="/case-studies/clinic-meta-ads" class="case-link">
-                View Case Study <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <p class="case-result-text case-result-text-2">
+                generated in the first 30 days
+              </p>
+              <a href="/case-studies/clinic-meta-ads" class="case-link"
+                >View Case Study <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
-
-            <!-- Case 3 -->
             <article class="case-card fade-up delay-2">
               <div class="case-number-bg">03</div>
-              <span class="case-tag">AI Automation</span>
+              <span class="case-tag case-tag-3">AI Automation</span>
               <i class="fa-solid fa-robot case-icon"></i>
-              <h3 class="case-title">WhatsApp Bot — Restaurant Chain</h3>
+              <h3 class="case-title case-title-3">
+                WhatsApp Bot — Restaurant Chain
+              </h3>
               <p class="case-meta">
-                <strong>Problem:</strong> Team overwhelmed with customer
-                inquiries.
+                <strong class="case-problem-label">Problem:</strong>
+                <span class="case-problem-text-3"
+                  >Team overwhelmed with customer inquiries.</span
+                >
               </p>
               <p class="case-meta">
-                <strong>Solution:</strong> AI WhatsApp bot handling orders &
-                bookings.
+                <strong class="case-solution-label">Solution:</strong>
+                <span class="case-solution-text-3"
+                  >AI WhatsApp bot handling orders &amp; bookings.</span
+                >
               </p>
               <div class="case-result">80% Less</div>
-              <p class="case-result-text">manual customer support time saved</p>
-              <a href="/case-studies/restaurant-automation" class="case-link">
-                View Case Study <i class="fa-solid fa-arrow-right"></i>
-              </a>
+              <p class="case-result-text case-result-text-3">
+                manual customer support time saved
+              </p>
+              <a href="/case-studies/restaurant-automation" class="case-link"
+                >View Case Study <i class="fa-solid fa-arrow-right"></i
+              ></a>
             </article>
           </div>
-
           <div class="case-see-all fade-up">
-            <a href="/case-studies" class="btn-outline">
-              See All Case Studies <i class="fa-solid fa-arrow-right"></i>
-            </a>
+            <a href="/case-studies" class="btn-outline case-see-all-btn"
+              >See All Case Studies <i class="fa-solid fa-arrow-right"></i
+            ></a>
           </div>
         </div>
       </section>
 
-      <!-- ============================================================
-     PROCESS — How we work in 4 steps
-     ============================================================ -->
+      <!-- PROCESS SECTION -->
       <section id="process" aria-labelledby="process-title">
         <div class="section-inner">
-          <span class="section-tag fade-up">How We Work</span>
+          <span class="section-tag process-tag">How We Work</span>
           <h2 id="process-title" class="section-title fade-up">
             From Day One to Results<br />in <em>4 Simple Steps.</em>
           </h2>
-          <p class="section-sub fade-up">
-            A clear, proven process that takes you from zero to fully launched —
-            with no surprises and no wasted time.
+          <p class="section-sub process-sub">
+            A clear, proven process — no surprises, no wasted time, just
+            results.
           </p>
-
           <div class="process-grid">
             <article class="process-card fade-up">
               <div class="process-num num-gold">01</div>
               <i
                 class="fa-solid fa-magnifying-glass process-icon"
-                style="color: var(--color-gold)"
+                style="color: var(--gold)"
               ></i>
-              <h3 class="process-title">Discovery & Audit</h3>
-              <p class="process-text">
+              <h3 class="process-title process-title-1">
+                Discovery &amp; Audit
+              </h3>
+              <p class="process-text process-text-1">
                 We deep dive into your business, competitors, and goals to build
-                the right plan for you.
+                the right plan.
               </p>
             </article>
-
             <article class="process-card fade-up delay-1">
               <div class="process-num num-red">02</div>
               <i
                 class="fa-solid fa-map process-icon"
-                style="color: var(--color-red)"
+                style="color: var(--red)"
               ></i>
-              <h3 class="process-title">Strategy & Planning</h3>
-              <p class="process-text">
+              <h3 class="process-title process-title-2">
+                Strategy &amp; Planning
+              </h3>
+              <p class="process-text process-text-2">
                 We create a custom roadmap with clear deliverables, timelines,
                 and expected results.
               </p>
             </article>
-
             <article class="process-card fade-up delay-2">
               <div class="process-num num-gold">03</div>
               <i
                 class="fa-solid fa-hammer process-icon"
-                style="color: var(--color-gold)"
+                style="color: var(--gold)"
               ></i>
-              <h3 class="process-title">Execution & Launch</h3>
-              <p class="process-text">
+              <h3 class="process-title process-title-3">
+                Execution &amp; Launch
+              </h3>
+              <p class="process-text process-text-3">
                 We build, design, and launch everything — keeping you updated at
                 every step.
               </p>
             </article>
-
             <article class="process-card fade-up delay-3">
               <div class="process-num num-red">04</div>
               <i
                 class="fa-solid fa-chart-line process-icon"
-                style="color: var(--color-red)"
+                style="color: var(--red)"
               ></i>
-              <h3 class="process-title">Optimize & Scale</h3>
-              <p class="process-text">
+              <h3 class="process-title process-title-4">
+                Optimize &amp; Scale
+              </h3>
+              <p class="process-text process-text-4">
                 We track results monthly, optimize performance, and scale what's
                 working.
               </p>
@@ -490,136 +550,107 @@
         </div>
       </section>
 
-      <!-- ============================================================
-     CTA SECTION — Strong push for action
-     ============================================================ -->
+      <!-- CTA SECTION -->
       <section id="cta" aria-label="Book a free strategy call">
         <div class="cta-inner">
-          <div class="cta-badge fade-up">🎯 Free Strategy Session</div>
-
-          <h2 class="cta-title fade-up">
+          <div class="cta-badge fade-up cta-badge-text">
+            🎯 Free Strategy Session
+          </div>
+          <h2 class="cta-title fade-up cta-title-text">
             Ready to Grow Your Business<br />in <em>Dubai?</em>
           </h2>
-
-          <p class="cta-sub fade-up">
+          <p class="cta-sub fade-up cta-sub-text">
             Book a free 30-minute strategy session. We'll review your business,
             identify the biggest opportunities, and tell you exactly what to do
             next.
           </p>
-
-          <a href="#contact" class="btn-cta-large fade-up">
-            <i class="fa-solid fa-calendar-check"></i>
-            Book Your Free Strategy Call
-          </a>
-
+          <a href="#contact" class="btn-cta-large fade-up cta-btn-text"
+            ><i class="fa-solid fa-calendar-check"></i> Book Your Free Strategy
+            Call</a
+          >
           <div class="cta-trust fade-up delay-1">
-            <span><i class="fa-solid fa-lock"></i> 100% Free</span>
             <span
-              ><i class="fa-regular fa-credit-card"></i> No credit card</span
+              ><i class="fa-solid fa-lock"></i>
+              <span class="cta-trust-1">100% Free</span></span
             >
             <span
-              ><i class="fa-regular fa-clock"></i> Response in 24 hours</span
+              ><i class="fa-regular fa-credit-card"></i>
+              <span class="cta-trust-2">No credit card</span></span
+            >
+            <span
+              ><i class="fa-regular fa-clock"></i>
+              <span class="cta-trust-3">Response in 24 hours</span></span
             >
           </div>
         </div>
       </section>
 
-      <!-- ============================================================
-     CONTACT SECTION — Easy to reach us
-     Title centered, form & info side by side
-     ============================================================ -->
+      <!-- CONTACT SECTION -->
       <section id="contact" aria-labelledby="contact-title">
         <div class="section-inner">
-          <!-- Centered header -->
           <div class="contact-header">
-            <span class="section-tag fade-up">Get In Touch</span>
+            <span class="section-tag contact-tag">Get In Touch</span>
             <h2 id="contact-title" class="section-title fade-up">
               Let's Build Something<br /><em>Great Together.</em>
             </h2>
-            <p class="section-sub fade-up">
+            <p class="section-sub contact-sub">
               Tell us about your business and what you need. We'll get back to
               you within 24 hours with a clear plan.
             </p>
           </div>
-
-          <!-- Info + Form side by side -->
           <div class="contact-grid">
-            <!-- Contact Info -->
             <div class="contact-info">
               <div class="contact-item fade-up">
                 <div class="contact-icon-wrap c-icon-red">
                   <i class="fa-brands fa-whatsapp"></i>
                 </div>
                 <div>
-                  <p class="contact-label">WhatsApp</p>
+                  <p class="contact-label contact-whatsapp-label">WhatsApp</p>
                   <a
                     href="https://wa.me/971500000000"
                     class="contact-value"
                     target="_blank"
                     rel="noopener"
+                    >+971 50 000 0000</a
                   >
-                    +971 50 000 0000
-                  </a>
                 </div>
               </div>
-
               <div class="contact-item fade-up delay-1">
                 <div class="contact-icon-wrap c-icon-gold">
                   <i class="fa-solid fa-envelope"></i>
                 </div>
                 <div>
-                  <p class="contact-label">Email</p>
-                  <a href="mailto:info@mindboxportal.com" class="contact-value">
-                    info@mindboxportal.com
-                  </a>
+                  <p class="contact-label contact-email-label">Email</p>
+                  <a href="/cdn-cgi/l/email-protection" class="contact-value"
+                    >info@mindboxportal.com</a
+                  >
                 </div>
               </div>
-
-              <!-- <div class="contact-item fade-up delay-2">
-                <div class="contact-icon-wrap c-icon-white">
-                  <i class="fa-solid fa-globe"></i>
-                </div>
-                <div>
-                  <p class="contact-label">Website</p>
-                  <a
-                    href="https://mindboxportal.com"
-                    class="contact-value"
-                    target="_blank"
-                    rel="noopener"
-                  >
-                    mindboxportal.com
-                  </a>
-                </div>
-              </div>-->
-
               <div class="contact-item fade-up delay-3">
                 <div class="contact-icon-wrap c-icon-gold">
                   <i class="fa-solid fa-location-dot"></i>
                 </div>
                 <div>
-                  <p class="contact-label">Location</p>
-                  <span class="contact-value">Dubai, United Arab Emirates</span>
+                  <p class="contact-label contact-location-label">Location</p>
+                  <span class="contact-value contact-location-text"
+                    >Dubai, United Arab Emirates 🇦🇪</span
+                  >
                 </div>
               </div>
-
-              <!-- Map placeholder -->
               <div class="map-placeholder fade-up">
                 <div class="map-grid"></div>
                 <div class="map-label">
                   <i class="fa-solid fa-location-dot"></i>
-                  <p>Dubai, UAE</p>
+                  <p class="map-text">Dubai, UAE</p>
                 </div>
               </div>
             </div>
-
-            <!-- Contact Form -->
             <div class="contact-form fade-up delay-1">
-              <h3 class="form-title">Send Us a Message</h3>
-
+              <h3 class="form-title form-title-text">Send Us a Message</h3>
               <div class="form-row">
                 <div class="form-group">
-                  <label for="fname">Your Name</label>
-                  <input
+                  <label for="fname" class="label-name">Your Name</label
+                  ><input
                     type="text"
                     id="fname"
                     name="name"
@@ -628,8 +659,9 @@
                   />
                 </div>
                 <div class="form-group">
-                  <label for="fbusiness">Business Name</label>
-                  <input
+                  <label for="fbusiness" class="label-business"
+                    >Business Name</label
+                  ><input
                     type="text"
                     id="fbusiness"
                     name="business"
@@ -637,42 +669,52 @@
                   />
                 </div>
               </div>
-
               <div class="form-group">
-                <label for="femail">Email Address</label>
-                <input
-                  type="email"
-                  id="femail"
-                  name="email"
-                  placeholder="you@company.com"
-                  autocomplete="email"
+                <label for="fcontact" class="label-contact"
+                  >Email or Phone Number</label
+                ><input
+                  type="text"
+                  id="fcontact"
+                  name="contact"
+                  placeholder="email@example.com or +971 50 000 0000"
+                  autocomplete="off"
                 />
               </div>
-
               <div class="form-group">
-                <label for="fservice">Which Service Do You Need?</label>
+                <label for="fservice" class="label-service"
+                  >Which Service Do You Need?</label
+                >
                 <select id="fservice" name="service">
-                  <option value="" disabled selected>Select a service</option>
-                  <option value="web">Web Development</option>
-                  <option value="ads">Paid Advertising</option>
-                  <option value="social">Social Media Design</option>
-                  <option value="ai">AI Automation</option>
-                  <option value="full">Full Package (All Services)</option>
+                  <option value="" disabled selected class="select-default">
+                    Select a service
+                  </option>
+                  <option value="web" class="select-web">
+                    Web Development
+                  </option>
+                  <option value="ads" class="select-ads">
+                    Paid Advertising
+                  </option>
+                  <option value="social" class="select-social">
+                    Social Media Design
+                  </option>
+                  <option value="ai" class="select-ai">AI Automation</option>
+                  <option value="full" class="select-full">
+                    Full Package (All Services)
+                  </option>
                 </select>
               </div>
-
               <div class="form-group">
-                <label for="fmessage">Tell Us About Your Project</label>
-                <textarea
+                <label for="fmessage" class="label-message"
+                  >Tell Us About Your Project</label
+                ><textarea
                   id="fmessage"
                   name="message"
                   placeholder="Brief description of your business and what you're looking for..."
                 ></textarea>
               </div>
-
               <button
                 type="button"
-                class="btn-submit"
+                class="btn-submit submit-btn-text"
                 onclick="handleSubmit(this)"
               >
                 <i class="fa-solid fa-paper-plane"></i> Send Message
@@ -683,12 +725,9 @@
       </section>
     </main>
 
-    <!-- ============================================================
-     FOOTER — Links, social icons, copyright
-     ============================================================ -->
+    <!-- FOOTER -->
     <footer role="contentinfo">
       <div class="footer-grid">
-        <!-- Brand column -->
         <div>
           <div class="footer-logo-wrap">
             <img
@@ -712,465 +751,112 @@
               </div>
             </div>
           </div>
-
-          <p class="footer-tagline">
+          <p class="footer-tagline footer-tagline-text">
             Dubai's digital growth agency — websites, ads, social media, and AI
             automation.
           </p>
-
-          <!-- Social media icons -->
           <div class="social-links">
             <a
               href="https://facebook.com/mindboxportal"
               class="social-link"
               target="_blank"
-              rel="noopener"
-              aria-label="Facebook"
-            >
-              <i class="fa-brands fa-facebook-f"></i>
-            </a>
+              ><i class="fa-brands fa-facebook-f"></i
+            ></a>
             <a
               href="https://instagram.com/mindboxportal"
               class="social-link"
               target="_blank"
-              rel="noopener"
-              aria-label="Instagram"
-            >
-              <i class="fa-brands fa-instagram"></i>
-            </a>
+              ><i class="fa-brands fa-instagram"></i
+            ></a>
             <a
               href="https://linkedin.com/company/mindboxportal"
               class="social-link"
               target="_blank"
-              rel="noopener"
-              aria-label="LinkedIn"
-            >
-              <i class="fa-brands fa-linkedin-in"></i>
-            </a>
+              ><i class="fa-brands fa-linkedin-in"></i
+            ></a>
             <a
               href="https://tiktok.com/@mindboxportal"
               class="social-link"
               target="_blank"
-              rel="noopener"
-              aria-label="TikTok"
-            >
-              <i class="fa-brands fa-tiktok"></i>
-            </a>
+              ><i class="fa-brands fa-tiktok"></i
+            ></a>
             <a
               href="https://behance.net/mindboxportal"
               class="social-link"
               target="_blank"
-              rel="noopener"
-              aria-label="Behance"
-            >
-              <i class="fa-brands fa-behance"></i>
-            </a>
+              ><i class="fa-brands fa-behance"></i
+            ></a>
           </div>
         </div>
-
-        <!-- Services links -->
         <div>
-          <h4 class="footer-col-title">Services</h4>
-          <nav class="footer-links" aria-label="Services">
-            <a href="/services/web-development">
-              <i class="fa-solid fa-chevron-right"></i> Web Development</a
+          <h4 class="footer-col-title footer-services-title">Services</h4>
+          <nav class="footer-links">
+            <a href="/services/web-development" class="footer-link-web"
+              ><i class="fa-solid fa-chevron-right"></i> Web Development</a
             >
-            <a href="/services/paid-advertising">
-              <i class="fa-solid fa-chevron-right"></i> Paid Advertising</a
+            <a href="/services/paid-advertising" class="footer-link-ads"
+              ><i class="fa-solid fa-chevron-right"></i> Paid Advertising</a
             >
-            <a href="/services/social-media">
-              <i class="fa-solid fa-chevron-right"></i> Social Media Design</a
+            <a href="/services/social-media" class="footer-link-social"
+              ><i class="fa-solid fa-chevron-right"></i> Social Media Design</a
             >
-            <a href="/services/ai-automation">
-              <i class="fa-solid fa-chevron-right"></i> AI Automation</a
+            <a href="/services/ai-automation" class="footer-link-ai"
+              ><i class="fa-solid fa-chevron-right"></i> AI Automation</a
             >
           </nav>
         </div>
-
-        <!-- Company links -->
         <div>
-          <h4 class="footer-col-title">Company</h4>
-          <nav class="footer-links" aria-label="Company">
-            <a href="/about">
-              <i class="fa-solid fa-chevron-right"></i> About Us</a
+          <h4 class="footer-col-title footer-company-title">Company</h4>
+          <nav class="footer-links">
+            <a href="about.html" class="footer-link-about"
+              ><i class="fa-solid fa-chevron-right"></i> About Us</a
             >
-            <a href="/case-studies">
-              <i class="fa-solid fa-chevron-right"></i> Our Work</a
+            <a href="/case-studies" class="footer-link-work"
+              ><i class="fa-solid fa-chevron-right"></i> Our Work</a
             >
-            <a href="#process">
-              <i class="fa-solid fa-chevron-right"></i> Process</a
+            <a href="#process" class="footer-link-process"
+              ><i class="fa-solid fa-chevron-right"></i> Process</a
             >
-            <a href="/blog"> <i class="fa-solid fa-chevron-right"></i> Blog</a>
-            <a href="#contact">
-              <i class="fa-solid fa-chevron-right"></i> Contact</a
+            <a href="/blog" class="footer-link-blog"
+              ><i class="fa-solid fa-chevron-right"></i> Blog</a
+            >
+            <a href="#contact" class="footer-link-contact"
+              ><i class="fa-solid fa-chevron-right"></i> Contact</a
             >
           </nav>
         </div>
-
-        <!-- Contact info -->
         <div>
-          <h4 class="footer-col-title">Say Hello</h4>
+          <h4 class="footer-col-title footer-hello-title">Say Hello</h4>
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <i class="fa-solid fa-envelope"></i>
-              <span>info@mindboxportal.com</span>
+              <span class="footer-email">info@mindboxportal.com</span>
             </li>
             <li class="footer-contact-item">
               <i class="fa-brands fa-whatsapp"></i>
-              <span>+971 50 000 0000</span>
+              <span class="footer-phone">+971 50 000 0000</span>
             </li>
             <li class="footer-contact-item">
               <i class="fa-solid fa-location-dot"></i>
-              <span>Dubai, UAE 🇦🇪</span>
+              <span class="footer-location-text">Dubai, UAE 🇦🇪</span>
             </li>
           </ul>
         </div>
       </div>
-
-      <!-- Bottom bar -->
       <div class="footer-bottom">
-        <p class="footer-copy">
-          © 2026 MindBox Portal. All rights reserved. <br />
-          Website Created by Ahmed Al Gamal
+        <p class="footer-copy footer-copy-text">
+          © 2026 MindBox Portal. All rights reserved.
         </p>
-        <nav class="footer-legal" aria-label="Legal">
-          <a href="/privacy-policy">Privacy Policy</a>
-          <a href="/terms-of-service">Terms of Service</a>
+        <nav class="footer-legal">
+          <a href="/privacy-policy" class="footer-privacy">Privacy Policy</a>
+          <a href="/terms-of-service" class="footer-terms">Terms of Service</a>
         </nav>
+      </div>
+      <div class="footer-credit footer-credit-text">
+        <span>2026MindBox</span> — Website created by Ahmed El Gamal
       </div>
     </footer>
 
-    <!-- ============================================================
-     JAVASCRIPT — Interactions & Animations
-     ============================================================ -->
-    <script>
-      /* ============================================================
-   SCROLL PROGRESS BAR
-   ============================================================ */
-      const scrollProgress = document.getElementById("scrollProgress");
-      window.addEventListener("scroll", () => {
-        const pct =
-          (window.scrollY /
-            (document.documentElement.scrollHeight - window.innerHeight)) *
-          100;
-        scrollProgress.style.width = pct + "%";
-      });
-
-      /* ============================================================
-   HEADER — Add background on scroll
-   ============================================================ */
-      window.addEventListener("scroll", () => {
-        document
-          .getElementById("header")
-          .classList.toggle("scrolled", window.scrollY > 50);
-      });
-
-      /* ============================================================
-   HAMBURGER + MOBILE NAV — Toggle with X animation
-   ============================================================ */
-      const hamburgerBtn = document.getElementById("hamburgerBtn");
-      const mobileNav = document.getElementById("mobileNav");
-
-      hamburgerBtn.addEventListener("click", () => {
-        mobileNav.classList.contains("open")
-          ? closeMobileNav()
-          : openMobileNav();
-      });
-
-      function openMobileNav() {
-        mobileNav.classList.add("open");
-        hamburgerBtn.classList.add("open");
-        document.body.style.overflow = "hidden";
-      }
-
-      function closeMobileNav() {
-        mobileNav.classList.remove("open");
-        hamburgerBtn.classList.remove("open");
-        document.body.style.overflow = "";
-      }
-
-      /* Close on ESC key */
-      document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeMobileNav();
-      });
-
-      /* ============================================================
-   SCROLL REVEAL — Fade up animations
-   ============================================================ */
-      const fadeObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) e.target.classList.add("visible");
-          });
-        },
-        { threshold: 0.1 },
-      );
-
-      document
-        .querySelectorAll(".fade-up")
-        .forEach((el) => fadeObserver.observe(el));
-
-      /* ============================================================
-   COUNTER ANIMATION — Stat numbers count up
-   ============================================================ */
-      const counterObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting && e.target.dataset.count) {
-              animateCounter(e.target);
-              counterObserver.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.5 },
-      );
-
-      document
-        .querySelectorAll("[data-count]")
-        .forEach((el) => counterObserver.observe(el));
-
-      function animateCounter(el) {
-        const target = parseInt(el.dataset.count);
-        const suffix = el.dataset.count == "100" ? "%" : "+";
-        const step = target / (1800 / 16);
-        let current = 0;
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) {
-            current = target;
-            clearInterval(timer);
-          }
-          el.textContent = Math.floor(current) + suffix;
-        }, 16);
-      }
-
-      /* ============================================================
-   ACTIVE NAV LINK — Highlights current section in nav
-   ============================================================ */
-      const allSections = document.querySelectorAll("section[id]");
-      const navLinks = document.querySelectorAll(".main-nav a");
-
-      window.addEventListener("scroll", () => {
-        let current = "";
-        allSections.forEach((s) => {
-          if (window.scrollY >= s.offsetTop - 120) current = s.id;
-        });
-        navLinks.forEach((l) => {
-          l.classList.toggle(
-            "active",
-            l.getAttribute("href") === "#" + current,
-          );
-        });
-      });
-
-      /* ============================================================
-   CONTACT FORM — Submit handler with loading state
-   ============================================================ */
-      function handleSubmit(btn) {
-        btn.innerHTML =
-          '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
-        btn.style.opacity = "0.75";
-
-        setTimeout(() => {
-          btn.innerHTML =
-            '<i class="fa-solid fa-check"></i> Message Sent! We\'ll respond in 24h';
-          btn.style.background = "#2a9d8f";
-          btn.style.opacity = "1";
-        }, 1500);
-      }
-
-      /* ============================================================
-   HERO FADE-IN — Trigger animations on page load
-   ============================================================ */
-      window.addEventListener("load", () => {
-        document
-          .querySelectorAll("#hero .fade-up")
-          .forEach((el) => el.classList.add("visible"));
-      });
-
-      /* ============================================================
-   CANVAS BACKGROUND — Stars, particles & shooting stars
-   Calm version: fewer particles, slower movement
-   ============================================================ */
-      const canvas = document.getElementById("bgCanvas");
-      const ctx = canvas.getContext("2d");
-      let W, H, particles, shootingStars;
-      let mouse = { x: null, y: null };
-
-      /* Track mouse for subtle interaction */
-      window.addEventListener("mousemove", (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      });
-      window.addEventListener("mouseleave", () => {
-        mouse.x = null;
-        mouse.y = null;
-      });
-
-      function resizeCanvas() {
-        W = canvas.width = window.innerWidth;
-        H = canvas.height = window.innerHeight;
-        initParticles();
-      }
-
-      /* Particle class — small drifting stars */
-      class Particle {
-        constructor() {
-          this.reset(true);
-        }
-
-        reset(initial) {
-          this.x = Math.random() * W;
-          this.y = initial ? Math.random() * H : H + 10;
-          this.size = Math.random() * 1.4 + 0.2;
-          this.speedX = (Math.random() - 0.5) * 0.15; /* slower */
-          this.speedY = -(Math.random() * 0.2 + 0.05); /* slower */
-          this.life = initial ? Math.random() * 300 : 0;
-          this.maxLife = Math.random() * 320 + 200;
-          const r = Math.random();
-          this.color =
-            r < 0.75
-              ? "rgba(255,255,255,"
-              : r < 0.9
-                ? "rgba(230,57,70,"
-                : "rgba(244,162,97,";
-        }
-
-        update() {
-          this.life++;
-          this.x += this.speedX;
-          this.y += this.speedY;
-
-          /* Very subtle mouse repulsion */
-          if (mouse.x !== null) {
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            if (d < 80) {
-              this.x += (dx / d) * 0.3;
-              this.y += (dy / d) * 0.3;
-            }
-          }
-
-          if (this.life >= this.maxLife || this.y < -10) this.reset(false);
-        }
-
-        draw() {
-          const a = Math.sin((this.life / this.maxLife) * Math.PI) * 0.7;
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-          ctx.fillStyle = this.color + a + ")";
-          ctx.fill();
-
-          /* Subtle glow for larger stars */
-          if (this.size > 1.0) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size * 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = this.color + a * 0.08 + ")";
-            ctx.fill();
-          }
-        }
-      }
-
-      /* Shooting star class */
-      class ShootingStar {
-        constructor() {
-          this.reset();
-        }
-
-        reset() {
-          this.x = Math.random() * W * 0.7;
-          this.y = Math.random() * H * 0.35;
-          this.len = Math.random() * 110 + 50;
-          this.speed = Math.random() * 7 + 4;
-          this.angle = Math.PI / 4 + (Math.random() - 0.5) * 0.4;
-          this.life = 0;
-          this.maxLife = 55;
-          this.active = false;
-          this.wait = 0;
-          this.next = Math.random() * 600 + 400; /* longer wait = rarer */
-        }
-
-        update() {
-          if (!this.active) {
-            this.wait++;
-            if (this.wait >= this.next) {
-              this.active = true;
-              this.wait = 0;
-            }
-            return;
-          }
-          this.life++;
-          this.x += Math.cos(this.angle) * this.speed;
-          this.y += Math.sin(this.angle) * this.speed;
-          if (this.life >= this.maxLife) this.reset();
-        }
-
-        draw() {
-          if (!this.active) return;
-          const a = 1 - this.life / this.maxLife;
-          const tx = this.x - Math.cos(this.angle) * this.len;
-          const ty = this.y - Math.sin(this.angle) * this.len;
-          const g = ctx.createLinearGradient(tx, ty, this.x, this.y);
-          g.addColorStop(0, "rgba(255,255,255,0)");
-          g.addColorStop(1, `rgba(255,255,255,${a * 0.85})`);
-          ctx.beginPath();
-          ctx.moveTo(tx, ty);
-          ctx.lineTo(this.x, this.y);
-          ctx.strokeStyle = g;
-          ctx.lineWidth = 1.2;
-          ctx.stroke();
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, 1.5, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(255,255,255,${a})`;
-          ctx.fill();
-        }
-      }
-
-      /* Draw faint connections between nearby particles */
-      function drawConnections() {
-        const maxD = 80; /* shorter distance = fewer lines = calmer */
-        for (let i = 0; i < particles.length; i++) {
-          for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const d = Math.sqrt(dx * dx + dy * dy);
-            if (d < maxD) {
-              ctx.beginPath();
-              ctx.moveTo(particles[i].x, particles[i].y);
-              ctx.lineTo(particles[j].x, particles[j].y);
-              ctx.strokeStyle = `rgba(230,57,70,${(1 - d / maxD) * 0.05})`;
-              ctx.lineWidth = 0.4;
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      function initParticles() {
-        /* Fewer particles for calmer effect */
-        const count = Math.min(Math.floor((W * H) / 10000), 80);
-        particles = Array.from({ length: count }, () => new Particle());
-        shootingStars = Array.from({ length: 2 }, () => new ShootingStar());
-      }
-
-      function animateBg() {
-        ctx.clearRect(0, 0, W, H);
-        drawConnections();
-        particles.forEach((p) => {
-          p.update();
-          p.draw();
-        });
-        shootingStars.forEach((s) => {
-          s.update();
-          s.draw();
-        });
-        requestAnimationFrame(animateBg);
-      }
-
-      window.addEventListener("resize", resizeCanvas);
-      resizeCanvas();
-      animateBg();
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>
