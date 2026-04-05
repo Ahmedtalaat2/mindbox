@@ -10,12 +10,12 @@ const translations = {
   en: {
     pageTitle: "MindBox Portal — Dubai's Digital Growth Agency",
     metaDescription:
-      "MindBox Portal — Web Development, Paid Ads, Social Media Design & AI Automation for businesses in Dubai.",
+      "MindBox Portal — Web Development, Paid Ads, Social Media Design & AI Automation for businesses in UAE.",
     metaKeywords:
-      "MindBox Portal, web development Dubai, paid ads Dubai, social media design Dubai, AI automation Dubai",
+      "MindBox Portal, web development Dubai, paid ads Dubai, social media design Dubai, AI automation UAE",
     ogTitle: "MindBox Portal — Dubai's Digital Growth Agency",
     ogDescription:
-      "Websites, paid ads, social media content & AI automation for businesses in Dubai.",
+      "Websites, paid ads, social media content & AI automation for businesses in UAE.",
     langBtn: "English",
     navHome: "Home",
     navServices: "Services",
@@ -29,13 +29,13 @@ const translations = {
     mobileProcess: "Process",
     mobileContact: "Contact",
     mobileCta: "Get Free Strategy",
-    heroTag: "Dubai's Digital Growth Agency 🇦🇪",
+    heroTag: "UAE's Digital Growth Agency ",
     heroH1: "We Build Digital Systems<br />That <em>Grow Your Business.</em>",
     heroSub:
-      "Websites, paid ads, social media content, and AI automation — everything your business needs to dominate online in Dubai.",
+      "Websites, paid ads, social media content, and AI automation — everything your business needs to dominate online in UAE.",
     heroCta: "Get Free Strategy",
     heroServicesBtn: "Our Services",
-    heroTrust: "Trusted by startups & businesses across Dubai 🇦🇪",
+    heroTrust: "Trusted by startups & businesses across UAE",
     statProjects: "Projects Delivered",
     statClients: "Happy Clients",
     statSatisfaction: "Client Satisfaction",
@@ -117,7 +117,7 @@ const translations = {
     processText4:
       "We track results monthly, optimize performance, and scale what's working.",
     ctaBadge: "🎯 Free Strategy Session",
-    ctaTitle: "Ready to Grow Your Business<br />in <em>Dubai?</em>",
+    ctaTitle: "Ready to Grow Your Business<br />in <em>UAE?</em>",
     ctaSub:
       "Book a free 30-minute strategy session. We'll review your business, identify the biggest opportunities, and tell you exactly what to do next.",
     ctaBtnText: "Book Your Free Strategy Call",
@@ -132,7 +132,7 @@ const translations = {
     contactEmail: "Email",
     contactWebsite: "Website",
     contactLocation: "Location",
-    contactLocationText: "Dubai, United Arab Emirates 🇦🇪",
+    contactLocationText: "Dubai, United Arab Emirates ",
     mapText: "Dubai, UAE",
     formTitle: "Send Us a Message",
     labelName: "Your Name",
@@ -161,21 +161,20 @@ const translations = {
     footerProcess: "Process",
     footerBlog: "Blog",
     footerContact: "Contact",
-    footerCopy: "© 2026 MindBox Portal. All rights reserved.",
     footerPrivacy: "Privacy Policy",
     footerTerms: "Terms of Service",
     footerCredit:
       "<span>2026MindBox</span> — Website created by Ahmed El Gamal",
   },
   ar: {
-    pageTitle: "ميند بوكس بورتال — وكالة النمو الرقمي في دبي",
+    pageTitle: "مايند بوكس بورتال — وكالة النمو الرقمي في الإمارات",
     metaDescription:
-      "ميند بوكس بورتال — تطوير مواقع، إعلانات مدفوعة، تصميم سوشيال ميديا، وأتمتة بالذكاء الاصطناعي للشركات في دبي",
+      "ميند بوكس بورتال — تطوير مواقع، إعلانات مدفوعة، تصميم سوشيال ميديا، وأتمتة بالذكاء الاصطناعي للشركات في الإمارات",
     metaKeywords:
-      "ميند بوكس بورتال, تصميم مواقع دبي, إعلانات مدفوعة دبي, تصميم سوشيال ميديا دبي, أتمتة ذكاء اصطناعي دبي",
+      "ميند بوكس بورتال, تصميم مواقع دبي, إعلانات مدفوعة دبي, تصميم سوشيال ميديا دبي, أتمتة ذكاء اصطناعي الإمارات",
     ogTitle: "ميند بوكس بورتال — وكالة النمو الرقمي في دبي",
     ogDescription:
-      "تطوير مواقع، إعلانات مدفوعة، تصميم سوشيال ميديا، وأتمتة بالذكاء الاصطناعي للشركات في دبي",
+      "تطوير مواقع، إعلانات مدفوعة، تصميم سوشيال ميديا، وأتمتة بالذكاء الاصطناعي للشركات في الإمارات",
     langBtn: "العربية",
     navHome: "الرئيسية",
     navServices: "الخدمات",
@@ -189,13 +188,13 @@ const translations = {
     mobileProcess: "العملية",
     mobileContact: "اتصل بنا",
     mobileCta: "احصل على استراتيجية مجانية",
-    heroTag: "وكالة النمو الرقمي في دبي 🇦🇪",
+    heroTag: "وكالة النمو الرقمي في الإمارات ",
     heroH1: "نحن نبني أنظمة رقمية<br />تنمي <em>أعمالك.</em>",
     heroSub:
-      "تطوير مواقع، إعلانات مدفوعة، محتوى سوشيال ميديا، وأتمتة بالذكاء الاصطناعي — كل ما تحتاجه أعمالك للسيطرة على الإنترنت في دبي.",
+      "تطوير مواقع، إعلانات مدفوعة، محتوى سوشيال ميديا، وأتمتة بالذكاء الاصطناعي — كل ما تحتاجه أعمالك للسيطرة على الإنترنت في الإمارات.",
     heroCta: "احصل على استراتيجية مجانية",
     heroServicesBtn: "خدماتنا",
-    heroTrust: "موثوق من قبل الشركات الناشئة والشركات في جميع أنحاء دبي 🇦🇪",
+    heroTrust: "موثوق من قبل الشركات الناشئة والشركات في جميع أنحاء الإمارات ",
     statProjects: "مشاريع منجزة",
     statClients: "عملاء سعداء",
     statSatisfaction: "رضا العملاء",
@@ -271,7 +270,7 @@ const translations = {
     processTitle4: "التحسين والتوسع",
     processText4: "نتتبع النتائج شهرياً، ونحسن الأداء، ونوسع ما ينجح.",
     ctaBadge: "🎯 جلسة استراتيجية مجانية",
-    ctaTitle: "مستعد لتنمية أعمالك<br />في <em>دبي؟</em>",
+    ctaTitle: "مستعد لتنمية أعمالك<br />في <em>الإمارات</em>",
     ctaSub:
       "احجز جلسة استراتيجية مجانية لمدة 30 دقيقة. سنراجع عملك ونحدد أكبر الفرص ونخبرك بالضبط ماذا تفعل بعد ذلك.",
     ctaBtnText: "احجز جلسة الاستراتيجية المجانية",
@@ -285,7 +284,7 @@ const translations = {
     contactEmail: "البريد الإلكتروني",
     contactWebsite: "الموقع",
     contactLocation: "الموقع",
-    contactLocationText: "دبي، الإمارات العربية المتحدة 🇦🇪",
+    contactLocationText: "دبي، الإمارات العربية المتحدة ",
     mapText: "دبي، الإمارات",
     formTitle: "أرسل لنا رسالة",
     labelName: "الاسم",
@@ -318,7 +317,7 @@ const translations = {
     footerPrivacy: "سياسة الخصوصية",
     footerTerms: "شروط الخدمة",
     footerCredit:
-      "<span>2026MindBox</span> — تم إنشاء الموقع بواسطة أحمد الجمال",
+      "<span>2026MindBox</span> — تم إنشاء الموقع بواسطة أحمـد الجمـــل",
   },
 };
 

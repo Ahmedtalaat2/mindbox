@@ -218,6 +218,18 @@ button {
   width: auto;
   object-fit: contain;
 }
+@media (max-width: 768px) {
+  .header-logo {
+    display: flex;
+    align-items: center;
+    height: 40px;
+  }
+  .header-logo img {
+    height: 24px;
+    width: auto;
+    object-fit: contain;
+  }
+}
 .logo-fallback {
   display: none;
   align-items: baseline;
@@ -429,7 +441,7 @@ button {
 }
 .mobile-nav a {
   font-family: "Montserrat", sans-serif;
-  font-size: 26px;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--white);
   opacity: 0;
@@ -468,7 +480,7 @@ button {
   background: var(--red) !important;
   color: var(--white) !important;
   font-size: 16px !important;
-  padding: 12px 28px !important;
+  padding: 10px 22px !important;
   border-radius: var(--radius);
   margin-top: 8px;
 }
@@ -532,7 +544,7 @@ button {
   display: block;
   padding: 14px 20px;
   color: var(--white);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 500;
   transition: var(--ease);
   text-align: center;
@@ -584,30 +596,30 @@ section {
 
 .section-tag {
   display: inline-block;
-  font-size: 10px;
+  font-size: 0.8rem;
   font-weight: 700;
   color: var(--gold);
-  letter-spacing: 3px;
+  letter-spacing: 2px;
   text-transform: uppercase;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .section-title {
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(26px, 3.5vw, 44px);
+  font-size: 1.9rem;
   font-weight: 900;
   color: var(--white);
   line-height: 1.15;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 .section-title em {
   color: var(--red);
   font-style: normal;
 }
 .section-sub {
-  font-size: 15px;
+  font-size: 0.8rem;
   color: var(--gray);
   line-height: 1.75;
-  max-width: 580px;
+  max-width: 90%;
   margin-bottom: 52px;
 }
 
@@ -622,7 +634,7 @@ section {
   color: var(--white);
   padding: 14px 28px;
   border-radius: var(--radius);
-  font-size: 15px;
+  font-size: 0.8rem;
   font-weight: 600;
   border: none;
   transition: var(--ease);
@@ -786,7 +798,97 @@ section {
   border-radius: 50%;
   display: inline-block;
 }
-
+@media (max-width: 768px) {
+  #hero {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 120px;
+    padding-bottom: 80px;
+  }
+  .hero-inner {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(244, 162, 97, 0.1);
+    border: 1px solid rgba(244, 162, 97, 0.25);
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+  .hero-tag-dot {
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    animation: dotPulse 2s ease-in-out infinite;
+  }
+  @keyframes dotPulse {
+    0%,
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.4;
+      transform: scale(0.7);
+    }
+  }
+  .hero-tag span {
+    font-size: 0.6rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+  }
+  .hero-h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 22px;
+  }
+  .hero-h1 em {
+    color: var(--red);
+    font-style: normal;
+  }
+  .hero-sub {
+    font-size: 0.8rem;
+    color: var(--gray);
+    line-height: 1.75;
+    max-width: 740px;
+    margin: 0 auto 36px;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+  }
+  .hero-trust {
+    font-size: 0.7rem;
+    color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .hero-trust-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--red);
+    border-radius: 50%;
+    display: inline-block;
+  }
+}
 /* ============================================================
    STATS BAR
    ============================================================ */
@@ -925,7 +1027,7 @@ section {
 .service-tag {
   display: inline-block;
   font-size: 10px;
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 2px;
   text-transform: uppercase;
   margin-bottom: 8px;
@@ -933,7 +1035,7 @@ section {
 }
 .service-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 18px;
+  font-size: 1.1rem;
   font-weight: 800;
   color: var(--white);
   margin-bottom: 10px;
@@ -1360,9 +1462,9 @@ section {
   transform: scale(1.1);
 }
 .c-icon-red {
-  background: rgba(230, 57, 70, 0.1);
-  border: 1px solid rgba(230, 57, 70, 0.25);
-  color: var(--red);
+  background: rgba(244, 162, 97, 0.1);
+  border: 1px solid rgba(244, 162, 97, 0.25);
+  color: var(--gold);
 }
 .c-icon-gold {
   background: rgba(244, 162, 97, 0.1);
@@ -1671,7 +1773,7 @@ footer {
   padding: 12px 0;
   text-align: center;
   font-size: 11px;
-  color: rgba(168, 178, 193, 0.25);
+  color: rgba(168, 178, 193, 0.5);
   border-top: 1px solid rgba(255, 255, 255, 0.03);
 }
 .footer-credit span {
@@ -1693,6 +1795,7 @@ footer {
   .footer-grid {
     grid-template-columns: 1fr;
     gap: 28px;
+    margin: auto;
   }
 }
 
