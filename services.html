@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="servicesPageTitle">MindBox Portal — Our Services | خدماتنا</title>
+    <meta
+      name="description"
+      id="servicesMetaDescription"
+      content="Explore MindBox Portal's services in UAE: Web Development, Paid Ads, Social Media Design & AI Automation. Professional digital solutions for your business."
+    />
+    <meta
+      name="keywords"
+      id="servicesMetaKeywords"
+      content="web development UAE, paid ads UAE, social media design UAE, AI automation UAE, digital marketing services UAE"
+    />
+    <meta name="author" content="Ahmed El Gamal — MindBox Portal" />
+    <meta name="robots" content="index, follow" />
+    <meta
+      property="og:title"
+      id="servicesOgTitle"
+      content="MindBox Portal — Our Digital Services in UAE"
+    />
+    <meta
+      property="og:description"
+      id="servicesOgDescription"
+      content="Professional web development, paid advertising, social media design & AI automation services in UAE."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://mindboxportal.com/services" />
+    <link rel="canonical" href="https://mindboxportal.com/services" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- BACKGROUND -->
+    <div class="bg-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+    <canvas id="bgCanvas" aria-hidden="true"></canvas>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- MOBILE NAVIGATION -->
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="index.html" class="mobile-nav-home" onclick="closeMobileNav()">Home</a>
+      <a href="services.html" class="mobile-nav-services" onclick="closeMobileNav()">Services</a>
+      <a href="work.html" class="mobile-nav-work" onclick="closeMobileNav()">Work</a>
+      <a href="process.html" class="mobile-nav-process" onclick="closeMobileNav()">Process</a>
+      <a href="index.html#contact" class="mobile-nav-contact" onclick="closeMobileNav()">Contact</a>
+
+      <!-- Mobile Language Switcher -->
+      <div class="mobile-lang-switcher">
+        <div class="mobile-lang-current" onclick="toggleMobileLangDropdown()">
+          <i class="fa-solid fa-globe"></i>
+          <span class="mobile-lang-text">English</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="mobile-lang-dropdown" id="mobileLangDropdown">
+          <a href="#" onclick="switchLanguage('en'); closeMobileNav(); return false;">English</a>
+          <a href="#" onclick="switchLanguage('ar'); closeMobileNav(); return false;">العربية</a>
+        </div>
+      </div>
+
+      <a href="index.html#contact" class="mobile-cta" onclick="closeMobileNav()">Get Free Strategy</a>
+    </nav>
+
+    <!-- HEADER -->
+    <header id="header" role="banner">
+      <a href="index.html" class="header-logo" aria-label="MindBox Portal Home">
+        <img
+          src="img/LOGO mindbox.svg"
+          alt="MindBox Portal Logo"
+          width="140"
+          height="40"
+          onerror="this.style.display = 'none'; this.nextElementSibling.style.display = 'flex';"
+        />
+        <div class="logo-fallback">
+          <span class="logo-mind">Mind</span>
+          <div class="logo-right">
+            <div class="logo-box-line">
+              <span class="logo-box">Box</span>
+              <span class="logo-dash"></span>
+            </div>
+            <span class="logo-portal">Portal</span>
+          </div>
+        </div>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="index.html" class="nav-home">Home</a>
+        <a href="services.html" class="nav-services active">Services</a>
+        <a href="work.html" class="nav-work">Work</a>
+        <a href="process.html" class="nav-process">Process</a>
+        <a href="index.html#contact" class="nav-contact">Contact</a>
+        <div class="lang-switcher">
+          <button class="lang-btn" id="langBtn">
+            <i class="fa-solid fa-globe"></i>
+            <span class="lang-btn-text">English</span>
+          </button>
+          <div class="lang-dropdown">
+            <a href="#" onclick="switchLanguage('en'); return false;">English</a>
+            <a href="#" onclick="switchLanguage('ar'); return false;">العربية</a>
+          </div>
+        </div>
+      </nav>
+
+      <a href="index.html#contact" class="btn-nav-cta cta-btn-text">Get Free Strategy</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main>
+      <!-- ============================================================
+         SERVICES PAGE HERO — عنوان صفحة الخدمات
+      ============================================================ -->
+      <section id="services-hero" class="services-hero-section">
+        <div class="services-hero-inner">
+          <div class="hero-tag fade-up">
+            <div class="hero-tag-dot"></div>
+            <span class="services-hero-tag-text">What We Do</span>
+          </div>
+          <h1 class="services-hero-title fade-up delay-1">
+            Our <em>Services</em>
+          </h1>
+          <p class="services-hero-sub fade-up delay-2">
+            We offer four core digital services designed to grow your business in UAE — 
+            from web development and paid ads to social media design and AI automation.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         QUICK LINKS — روابط سريعة للخدمات
+      ============================================================ -->
+      <div class="services-quick-links fade-up delay-3">
+        <div class="quick-links-inner">
+          <a href="#service-web" class="quick-link quick-link-web">🌐 Web Development</a>
+          <a href="#service-ads" class="quick-link quick-link-ads">📊 Paid Ads</a>
+          <a href="#service-social" class="quick-link quick-link-social">🎨 Social Media</a>
+          <a href="#service-ai" class="quick-link quick-link-ai">🤖 AI Automation</a>
+        </div>
+      </div>
+
+      <!-- ============================================================
+         SERVICE 1: WEB DEVELOPMENT — تطوير المواقع
+      ============================================================ -->
+      <section id="service-web" class="service-detail-section">
+        <div class="section-inner">
+          <div class="service-detail-grid">
+            <div class="service-detail-info fade-up">
+              <div class="service-detail-icon icon-red">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <span class="service-detail-tag">Service 01</span>
+              <h2 class="service-detail-title service-web-title">Web Development</h2>
+              <p class="service-detail-desc service-web-desc">
+                Fast, professional websites and online stores that convert visitors into customers. 
+                Custom-built solutions tailored to your business needs in UAE.
+              </p>
+            </div>
+            <div class="service-detail-features fade-up delay-1">
+              <div class="features-box">
+                <h3 class="features-title features-web-title">Features</h3>
+                <ul class="features-list features-web-list">
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-1">Responsive Design (Mobile Friendly)</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-2">Fast Loading Speed (90+ PageSpeed)</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-3">SEO Optimized Structure</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-4">Easy Content Management System</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-5">Secure & Safe Coding</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-web-6">Technical Support After Launch</span></li>
+                </ul>
+              </div>
+              <div class="benefits-box">
+                <h3 class="benefits-title benefits-web-title">Benefits for Your Business</h3>
+                <ul class="benefits-list benefits-web-list">
+                  <li><i class="fa-solid fa-chart-line"></i> <span class="benefit-web-1">Increase Sales & Revenue</span></li>
+                  <li><i class="fa-solid fa-google"></i> <span class="benefit-web-2">Rank Higher on Google</span></li>
+                  <li><i class="fa-solid fa-building"></i> <span class="benefit-web-3">Build Brand Credibility</span></li>
+                  <li><i class="fa-solid fa-users"></i> <span class="benefit-web-4">Excellent User Experience</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Portfolio -->
+          <div class="service-portfolio fade-up delay-2">
+            <h3 class="portfolio-title portfolio-web-title">Recent Web Projects</h3>
+            <div class="portfolio-grid">
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-store"></i></div>
+                <h4 class="portfolio-web-item1-title">Shopify Store — Fashion Brand</h4>
+                <p class="portfolio-web-item1-desc">Custom Shopify store with payment integration</p>
+                <span class="portfolio-result portfolio-web-item1-result">+65% Sales</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-hospital"></i></div>
+                <h4 class="portfolio-web-item2-title">Website — Medical Clinic</h4>
+                <p class="portfolio-web-item2-desc">Professional site with online appointment booking</p>
+                <span class="portfolio-result portfolio-web-item2-result">+200% Bookings</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-chart-simple"></i></div>
+                <h4 class="portfolio-web-item3-title">Platform — Consulting Firm</h4>
+                <p class="portfolio-web-item3-desc">Complete platform with dashboard & blog</p>
+                <span class="portfolio-result portfolio-web-item3-result">+150% Traffic</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pricing & CTA -->
+          <div class="service-pricing fade-up delay-3">
+            <div class="pricing-box">
+              <span class="pricing-label pricing-web-label">Starting From</span>
+              <span class="pricing-value pricing-web-value">3,000 AED</span>
+              <a href="index.html#contact" class="btn-primary service-web-cta">Request Service <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <!-- FAQ -->
+          <div class="service-faq fade-up delay-3">
+            <h3 class="faq-title faq-web-title">Frequently Asked Questions</h3>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-web-q1">How long does website development take?</span></div>
+                <div class="faq-answer faq-web-a1">Typically 2-6 weeks depending on project complexity and requirements.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-web-q2">Do you support WordPress?</span></div>
+                <div class="faq-answer faq-web-a2">Yes, WordPress is our primary CMS for standard websites.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-web-q3">Do you offer maintenance after launch?</span></div>
+                <div class="faq-answer faq-web-a3">Yes, we offer monthly and yearly maintenance packages.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SERVICE 2: PAID ADS — الإعلانات المدفوعة
+      ============================================================ -->
+      <section id="service-ads" class="service-detail-section alt-bg">
+        <div class="section-inner">
+          <div class="service-detail-grid reverse">
+            <div class="service-detail-info fade-up">
+              <div class="service-detail-icon icon-gold">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <span class="service-detail-tag">Service 02</span>
+              <h2 class="service-detail-title service-ads-title">Paid Advertising</h2>
+              <p class="service-detail-desc service-ads-desc">
+                High-performance ad campaigns that bring you real leads and sales — not just clicks. 
+                We target the right audience across all major platforms.
+              </p>
+            </div>
+            <div class="service-detail-features fade-up delay-1">
+              <div class="features-box">
+                <h3 class="features-title features-ads-title">Features</h3>
+                <ul class="features-list features-ads-list">
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-1">Meta Ads (Facebook & Instagram)</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-2">Google Ads (Search & Display)</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-3">TikTok Ads</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-4">ROI Tracking & Analysis</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-5">Continuous Campaign Optimization</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ads-6">Weekly Performance Reports</span></li>
+                </ul>
+              </div>
+              <div class="benefits-box">
+                <h3 class="benefits-title benefits-ads-title">Benefits for Your Business</h3>
+                <ul class="benefits-list benefits-ads-list">
+                  <li><i class="fa-solid fa-bullhorn"></i> <span class="benefit-ads-1">Reach Targeted Audience</span></li>
+                  <li><i class="fa-solid fa-coins"></i> <span class="benefit-ads-2">Increase Sales & Leads</span></li>
+                  <li><i class="fa-solid fa-chart-simple"></i> <span class="benefit-ads-3">Improve Brand Awareness</span></li>
+                  <li><i class="fa-solid fa-chart-line"></i> <span class="benefit-ads-4">High ROI</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-portfolio fade-up delay-2">
+            <h3 class="portfolio-title portfolio-ads-title">Recent Advertising Projects</h3>
+            <div class="portfolio-grid">
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-clinic-medical"></i></div>
+                <h4 class="portfolio-ads-item1-title">Facebook Ads — Medical Clinic</h4>
+                <p class="portfolio-ads-item1-desc">Targeted local patients with strategic campaigns</p>
+                <span class="portfolio-result portfolio-ads-item1-result">150+ Leads</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-bag-shopping"></i></div>
+                <h4 class="portfolio-ads-item2-title">Google Shopping — E-commerce Store</h4>
+                <p class="portfolio-ads-item2-desc">Optimized product listings for search visibility</p>
+                <span class="portfolio-result portfolio-ads-item2-result">+120% Sales</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-utensils"></i></div>
+                <h4 class="portfolio-ads-item3-title">TikTok Ads — Restaurant Chain</h4>
+                <p class="portfolio-ads-item3-desc">Creative video campaigns to increase awareness</p>
+                <span class="portfolio-result portfolio-ads-item3-result">+300% Engagement</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-pricing fade-up delay-3">
+            <div class="pricing-box">
+              <span class="pricing-label pricing-ads-label">Starting From</span>
+              <span class="pricing-value pricing-ads-value">2,500 AED</span>
+              <a href="index.html#contact" class="btn-primary service-ads-cta">Request Service <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="service-faq fade-up delay-3">
+            <h3 class="faq-title faq-ads-title">Frequently Asked Questions</h3>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ads-q1">What budget do I need for ads?</span></div>
+                <div class="faq-answer faq-ads-a1">We recommend starting from 3,000 AED per month for testing and optimization.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ads-q2">When will I see results?</span></div>
+                <div class="faq-answer faq-ads-a2">Initial results appear within 2 weeks, with optimal results after 2 months.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ads-q3">Which platforms do you support?</span></div>
+                <div class="faq-answer faq-ads-a3">Meta, Google, TikTok, LinkedIn, and Twitter based on your needs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SERVICE 3: SOCIAL MEDIA DESIGN — تصميم السوشيال ميديا
+      ============================================================ -->
+      <section id="service-social" class="service-detail-section">
+        <div class="section-inner">
+          <div class="service-detail-grid">
+            <div class="service-detail-info fade-up">
+              <div class="service-detail-icon icon-blue">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <span class="service-detail-tag">Service 03</span>
+              <h2 class="service-detail-title service-social-title">Social Media Design</h2>
+              <p class="service-detail-desc service-social-desc">
+                Scroll-stopping content that builds your brand and drives real engagement. 
+                Consistent visual identity across all social platforms.
+              </p>
+            </div>
+            <div class="service-detail-features fade-up delay-1">
+              <div class="features-box">
+                <h3 class="features-title features-social-title">Features</h3>
+                <ul class="features-list features-social-list">
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-1">Instagram & TikTok Posts</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-2">Stories & Reels Templates</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-3">Complete Brand Visual Identity</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-4">Monthly Content Calendar</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-5">Social Media Ad Designs</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-social-6">Content Performance Analysis</span></li>
+                </ul>
+              </div>
+              <div class="benefits-box">
+                <h3 class="benefits-title benefits-social-title">Benefits for Your Business</h3>
+                <ul class="benefits-list benefits-social-list">
+                  <li><i class="fa-solid fa-heart"></i> <span class="benefit-social-1">Increase Engagement & Followers</span></li>
+                  <li><i class="fa-solid fa-brush"></i> <span class="benefit-social-2">Unique & Consistent Visual Identity</span></li>
+                  <li><i class="fa-solid fa-calendar"></i> <span class="benefit-social-3">Regular Content Schedule</span></li>
+                  <li><i class="fa-solid fa-chart-line"></i> <span class="benefit-social-4">Improve Brand Awareness</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-portfolio fade-up delay-2">
+            <h3 class="portfolio-title portfolio-social-title">Recent Social Media Projects</h3>
+            <div class="portfolio-grid">
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-cake-candles"></i></div>
+                <h4 class="portfolio-social-item1-title">Awareness Campaign — Non-profit</h4>
+                <p class="portfolio-social-item1-desc">Engaging visual content for awareness campaigns</p>
+                <span class="portfolio-result portfolio-social-item1-result">+400% Engagement</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-mobile-alt"></i></div>
+                <h4 class="portfolio-social-item2-title">Brand Identity — Startup</h4>
+                <p class="portfolio-social-item2-desc">Complete visual identity & monthly content</p>
+                <span class="portfolio-result portfolio-social-item2-result">+200% Followers</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-spa"></i></div>
+                <h4 class="portfolio-social-item3-title">Spa & Beauty Center</h4>
+                <p class="portfolio-social-item3-desc">Daily content showcasing services & offers</p>
+                <span class="portfolio-result portfolio-social-item3-result">Fully Booked</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-pricing fade-up delay-3">
+            <div class="pricing-box">
+              <span class="pricing-label pricing-social-label">Starting From</span>
+              <span class="pricing-value pricing-social-value">2,000 AED</span>
+              <a href="index.html#contact" class="btn-primary service-social-cta">Request Service <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="service-faq fade-up delay-3">
+            <h3 class="faq-title faq-social-title">Frequently Asked Questions</h3>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-social-q1">How many posts do you recommend monthly?</span></div>
+                <div class="faq-answer faq-social-a1">We recommend 15-20 posts per month across different platforms.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-social-q2">Do you offer account management?</span></div>
+                <div class="faq-answer faq-social-a2">Yes, we can fully manage your accounts including posting and engagement.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-social-q3">How long does brand identity take?</span></div>
+                <div class="faq-answer faq-social-a3">Typically 1-2 weeks depending on project complexity.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         SERVICE 4: AI AUTOMATION — أتمتة الذكاء الاصطناعي
+      ============================================================ -->
+      <section id="service-ai" class="service-detail-section alt-bg">
+        <div class="section-inner">
+          <div class="service-detail-grid reverse">
+            <div class="service-detail-info fade-up">
+              <div class="service-detail-icon icon-green">
+                <i class="fa-solid fa-robot"></i>
+              </div>
+              <span class="service-detail-tag">Service 04</span>
+              <h2 class="service-detail-title service-ai-title">AI Automation</h2>
+              <p class="service-detail-desc service-ai-desc">
+                Automate your business operations with AI — save time, reduce costs, and scale faster. 
+                Smart solutions that work 24/7 for your business.
+              </p>
+            </div>
+            <div class="service-detail-features fade-up delay-1">
+              <div class="features-box">
+                <h3 class="features-title features-ai-title">Features</h3>
+                <ul class="features-list features-ai-list">
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-1">WhatsApp & Chatbot Systems</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-2">Business Workflow Automation</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-3">24/7 AI Customer Support</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-4">API & Systems Integration</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-5">Smart Analytics & Reports</span></li>
+                  <li><i class="fa-solid fa-check-circle"></i> <span class="feature-ai-6">Fully Customizable Solutions</span></li>
+                </ul>
+              </div>
+              <div class="benefits-box">
+                <h3 class="benefits-title benefits-ai-title">Benefits for Your Business</h3>
+                <ul class="benefits-list benefits-ai-list">
+                  <li><i class="fa-solid fa-clock"></i> <span class="benefit-ai-1">Save Time & Effort</span></li>
+                  <li><i class="fa-solid fa-chart-line"></i> <span class="benefit-ai-2">Reduce Operational Costs</span></li>
+                  <li><i class="fa-solid fa-headset"></i> <span class="benefit-ai-3">Improve Customer Service</span></li>
+                  <li><i class="fa-solid fa-chart-simple"></i> <span class="benefit-ai-4">Increase Productivity</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-portfolio fade-up delay-2">
+            <h3 class="portfolio-title portfolio-ai-title">Recent AI Automation Projects</h3>
+            <div class="portfolio-grid">
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-utensils"></i></div>
+                <h4 class="portfolio-ai-item1-title">WhatsApp Bot — Restaurant Chain</h4>
+                <p class="portfolio-ai-item1-desc">Automated orders & reservations via WhatsApp</p>
+                <span class="portfolio-result portfolio-ai-item1-result">80% Less Support Time</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-building"></i></div>
+                <h4 class="portfolio-ai-item2-title">Workflow Automation — Real Estate</h4>
+                <p class="portfolio-ai-item2-desc">Automated lead follow-up and offer distribution</p>
+                <span class="portfolio-result portfolio-ai-item2-result">+50% Productivity</span>
+              </div>
+              <div class="portfolio-item">
+                <div class="portfolio-image-placeholder"><i class="fa-solid fa-chalkboard-user"></i></div>
+                <h4 class="portfolio-ai-item3-title">Chatbot — Educational Platform</h4>
+                <p class="portfolio-ai-item3-desc">AI bot answering student questions & enrollment</p>
+                <span class="portfolio-result portfolio-ai-item3-result">24/7 Instant Support</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-pricing fade-up delay-3">
+            <div class="pricing-box">
+              <span class="pricing-label pricing-ai-label">Starting From</span>
+              <span class="pricing-value pricing-ai-value">3,500 AED</span>
+              <a href="index.html#contact" class="btn-primary service-ai-cta">Request Service <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+          </div>
+
+          <div class="service-faq fade-up delay-3">
+            <h3 class="faq-title faq-ai-title">Frequently Asked Questions</h3>
+            <div class="faq-grid">
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ai-q1">How long does bot development take?</span></div>
+                <div class="faq-answer faq-ai-a1">2-4 weeks depending on complexity and requirements.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ai-q2">Does the bot need continuous training?</span></div>
+                <div class="faq-answer faq-ai-a2">Initial training provided, plus ongoing optimization available.</div>
+              </div>
+              <div class="faq-item">
+                <div class="faq-question"><i class="fa-solid fa-question-circle"></i><span class="faq-ai-q3">Can you integrate with my existing systems?</span></div>
+                <div class="faq-answer faq-ai-a3">Yes, we can integrate with most CRM systems and APIs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         GENERAL FAQ — أسئلة شائعة عامة
+      ============================================================ -->
+      <section class="general-faq-section">
+        <div class="section-inner">
+          <div class="general-faq-header fade-up">
+            <span class="section-tag">FAQ</span>
+            <h2 class="section-title">Frequently Asked <em>Questions</em></h2>
+            <p class="section-sub">Answers to common questions from our clients in UAE</p>
+          </div>
+          <div class="general-faq-grid">
+            <div class="general-faq-item fade-up">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q1">How much do your services cost?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a1">Pricing varies based on service type and project scope. Our packages start from 2,000 AED for social media design and go up to 5,000+ AED for complete solutions. Contact us for a detailed quote based on your specific needs.</div>
+            </div>
+            <div class="general-faq-item fade-up delay-1">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q2">How long does a typical project take?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a2">Timeline depends on the project: simple websites (2-3 weeks), e-commerce stores (4-6 weeks), ad campaigns (2 weeks setup), and AI bots (2-4 weeks).</div>
+            </div>
+            <div class="general-faq-item fade-up delay-2">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q3">Do you offer a warranty on your services?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a3">Yes, we offer a 30-day warranty after project delivery for bug fixes and technical issues. We also provide ongoing maintenance packages for continuous support.</div>
+            </div>
+            <div class="general-faq-item fade-up delay-3">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q4">How can I contact you after the project?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a4">You can reach us via WhatsApp, email, or the contact form on our website. We provide technical support during business hours (9 AM - 6 PM) on weekdays.</div>
+            </div>
+            <div class="general-faq-item fade-up delay-4">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q5">Do you offer monthly ongoing services?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a5">Yes! We offer monthly maintenance packages for websites, ongoing ad campaign management, and monthly social media content creation. Choose the package that fits your needs.</div>
+            </div>
+            <div class="general-faq-item fade-up delay-4">
+              <div class="general-faq-question">
+                <i class="fa-solid fa-question-circle"></i>
+                <span class="general-faq-q6">Why should I choose MindBox Portal?</span>
+                <i class="fa-solid fa-chevron-down faq-toggle-icon"></i>
+              </div>
+              <div class="general-faq-answer general-faq-a6">We combine deep UAE market expertise, a comprehensive service suite under one roof, competitive pricing, and a focus on real results. You get direct communication with our team and professional execution.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+         FINAL CTA — حث أخير على اتخاذ إجراء
+      ============================================================ -->
+      <section class="services-final-cta">
+        <div class="cta-inner">
+          <div class="cta-badge fade-up cta-badge-text">🎯 Start Your Journey</div>
+          <h2 class="cta-title fade-up cta-title-text">
+            Ready to Grow Your Business<br />in <em>UAE?</em>
+          </h2>
+          <p class="cta-sub fade-up cta-sub-text">
+            Book a free 30-minute strategy session. We'll understand your needs, 
+            identify opportunities, and create a clear plan for your success.
+          </p>
+          <a href="index.html#contact" class="btn-cta-large fade-up cta-btn-text">
+            <i class="fa-solid fa-calendar-check"></i> Book Your Free Strategy Call
+          </a>
+          <div class="cta-trust fade-up delay-1">
+            <span><i class="fa-solid fa-lock"></i> <span class="cta-trust-1">100% Free</span></span>
+            <span><i class="fa-regular fa-credit-card"></i> <span class="cta-trust-2">No credit card</span></span>
+            <span><i class="fa-regular fa-clock"></i> <span class="cta-trust-3">Response in 24 hours</span></span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer role="contentinfo">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo-wrap">
+            <img
+              src="img/LOGO mindbox.svg"
+              alt="MindBox Portal"
+              width="120"
+              height="36"
+              onerror="this.style.display = 'none'; this.nextElementSibling.style.display = 'flex';"
+            />
+            <div class="logo-fallback">
+              <span class="logo-mind" style="font-size: 20px">Mind</span>
+              <div class="logo-right">
+                <div class="logo-box-line">
+                  <span class="logo-box" style="font-size: 10px">Box</span>
+                  <span class="logo-dash" style="width: 12px"></span>
+                </div>
+                <span class="logo-portal" style="font-size: 10px">Portal</span>
+              </div>
+            </div>
+          </div>
+          <p class="footer-tagline footer-tagline-text">
+            UAE's digital growth agency — websites, ads, social media, and AI automation.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="#" class="social-link" target="_blank"><i class="fa-brands fa-behance"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title footer-services-title">Services</h4>
+          <nav class="footer-links">
+            <a href="#service-web" class="footer-link-web"><i class="fa-solid fa-chevron-right"></i> Web Development</a>
+            <a href="#service-ads" class="footer-link-ads"><i class="fa-solid fa-chevron-right"></i> Paid Advertising</a>
+            <a href="#service-social" class="footer-link-social"><i class="fa-solid fa-chevron-right"></i> Social Media Design</a>
+            <a href="#service-ai" class="footer-link-ai"><i class="fa-solid fa-chevron-right"></i> AI Automation</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="footer-col-title footer-company-title">Company</h4>
+          <nav class="footer-links">
+            <a href="about.html" class="footer-link-about"><i class="fa-solid fa-chevron-right"></i> About Us</a>
+            <a href="work.html" class="footer-link-work"><i class="fa-solid fa-chevron-right"></i> Our Work</a>
+            <a href="process.html" class="footer-link-process"><i class="fa-solid fa-chevron-right"></i> Process</a>
+            <a href="index.html#contact" class="footer-link-contact"><i class="fa-solid fa-chevron-right"></i> Contact</a>
+          </nav>
+        </div>
+        <div>
+          <h4 class="footer-col-title footer-hello-title">Say Hello</h4>
+          <ul class="footer-contact-list">
+            <li class="footer-contact-item"><i class="fa-solid fa-envelope"></i> <span class="footer-email">info@mindboxportal.com</span></li>
+            <li class="footer-contact-item"><i class="fa-brands fa-whatsapp"></i> <span class="footer-phone">+971 50 000 0000</span></li>
+            <li class="footer-contact-item"><i class="fa-solid fa-location-dot"></i> <span class="footer-location-text">Dubai, UAE</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy footer-copy-text">© 2026 MindBox Portal. All rights reserved.</p>
+        <nav class="footer-legal">
+          <a href="#" class="footer-privacy">Privacy Policy</a>
+          <a href="#" class="footer-terms">Terms of Service</a>
+        </nav>
+      </div>
+      <div class="footer-credit footer-credit-text">
+        <span>2026MindBox</span> — Website created by Ahmed El Gamal
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
